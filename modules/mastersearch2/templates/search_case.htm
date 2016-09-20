@@ -1,0 +1,48 @@
+<form name="ms_search" method="get" action="{$action}">
+{foreach from=$HiddenGetFields key=k item=v}
+  <input type="hidden" name="{$k}" value="{$v}" />
+{/foreach}
+<table width="100%" cellspacing="0" cellpadding="0">
+
+{foreach from=$SearchInputs item=Line}
+<tr>
+  {foreach from=$Line item=input}
+  	{if $input.type != ''}
+	    <td class="mastersearch2_search_row_key" width="20%" valign="top">
+	      <b>{$input.caption}</b>
+	    </td><td class="mastersearch2_search_row_value" valign="top">
+	      {if $input.type == 'text'}
+	        <input type="text" name="{$input.name}" value="{$input.value}" size="30" class="form" onmouseover="this.focus();" />
+	      {elseif $input.type == 'select'}
+	        <select name="{$input.name}" class="form" onmouseover="this.focus();" {$input.multiple}>
+	        {html_options options=$input.options selected=$input.selected}
+	        </select>
+	      {else}
+	        &nbsp;
+	      {/if}
+	      {if $input.helpletId != ''}
+	        <a href="#" onclick="javascript:var w=window.open('index.php?mod=helplet&action=helplet&design=base&module=mastersearch2&helpletid={$input.helpletId}','_blank','width=700,height=500,resizable=no,scrollbars=yes');" class="underline_on_hover">? {$helpletText}</a>
+	      {/if}
+	    </td>
+	{/if}
+  {/foreach}
+</tr>
+{/foreach}
+
+<tr><td class="mastersearch2_search_row_key">
+  &nbsp;
+</td><td class="mastersearch2_search_row_value"{if $quicklinks|@count <= 0} colspan="3"{/if}>
+  <input type="submit" class="Button" name="suchen" value="Suchen" />
+</td>
+{if $quicklinks|@count > 0}
+<td class="mastersearch2_search_row_value" colspan="2" style="text-align:right">
+{foreach from=$quicklinks item=quicklink}
+  <div class="Button" style="display:inline-block">
+    <a href="{$quicklink.link}">{$quicklink.name}</a>
+  </div>
+{/foreach}
+</td>
+{/if}
+</tr>
+</table>
+</form>

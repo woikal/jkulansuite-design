@@ -1,0 +1,349 @@
+@charset "UTF-8";
+/*
+Lansuite Style-Definitions JKU LAN simple
+*/
+/* -- Google Fonts Import -- */
+@import "https://fonts.googleapis.com/css?family=Roboto";
+@import "https://fonts.googleapis.com/css?family=Roboto+Condensed";
+@import "https://fonts.googleapis.com/css?family=Righteous";
+@import "https://fonts.googleapis.com/css?family=Black+Ops+One";
+/* --reseting browser defaults -- */
+html, body {
+  font-size: 12px;
+  margin: 0;
+  background: #009cb3;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+/*Prim├ñrfarben Hilfsfarben Akzentfarben mild Akzentfarben intensiv
+#009cb3
+(0,156,179)
+#006d7d
+(0, 109, 125)
+#74a57f
+(116, 165, 127)
+#99c24d
+(153, 194, 77)
+#ffffff
+(255, 255, 255)
+#000000
+(0, 0, 0)
+#314cb6
+(49, 76, 182)
+#ffc857
+(255, 200, 87)
+#36f1cd
+(54, 241, 205)
+#8f2d56
+(143, 45, 86)
+Logo, Banner, Hintergrundfarbe,
+Schriften auf dunkelm
+Untergrund
+Schatten, Effekte, R├ñnder,
+Schriften auf hellem Untergrund
+Hyperlinks, Icons Hyperlinks, Icons*/
+/* Overrides for development purposes */
+#notification {
+  display: none !important;
+}
+
+/* font-family: 'Roboto Condensed', sans-serif; */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+/* -- Main Layout definitions */
+#DateLogout {
+  padding: 0.2em 0;
+  background: white;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+#LansuiteFullscreen {
+  position: relative;
+  font-size: 0.9em;
+  background: white;
+}
+
+#Mainbar {
+  position: fixed;
+  /*float: left;*/
+  left: 0;
+  top: 0;
+  margin: 0;
+  width: 250px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #006d7d;
+}
+#Mainbar::after {
+  content: '';
+  position: absolute;
+  right: -16px;
+  top: 0;
+  height: 100%;
+  width: 16px;
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  /* Color fallback */
+  background: -o-linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent);
+  /* For Opera 11.1 to 12.0 */
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.3), transparent);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent);
+}
+
+header {
+  margin: 1.21em 10px;
+}
+
+#Pagelogo {
+  width: 230px;
+  margin: 0;
+  border: 0 none;
+}
+
+#Pagetitle {
+  /*float: left;*/
+  margin: 0.2em;
+  text-align: center;
+  color: white;
+}
+#Pagetitle h1 {
+  font-family: 'Roboto Condensed', sans-serfi;
+  font-size: 5rem;
+  font-weight: 100;
+  line-height: 1;
+  padding: 0;
+  text-shadow: -2px 2px #005e6b;
+}
+#Pagetitle p {
+  font-size: 1.2rem;
+  padding: 0;
+  text-shadow: -2px 2px #005e6b;
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    display: none;
+  }
+}
+#BoxesLeft {
+  width: 250px;
+  padding: 0;
+}
+
+.wrapped {
+  margin-left: 250px;
+}
+
+#Sponsors {
+  background: #ccebf0;
+  text-align: right;
+  padding: 1em 1.2em;
+}
+#Sponsors a {
+  display: inline-block;
+  font-size: 0;
+}
+#Sponsors img {
+  max-height: 100%;
+}
+
+#ContentFullscreen {
+  margin: 0px 2px 10px 2px;
+  padding: 8px 4px 10px 8px;
+  background: #eee6e6;
+}
+
+#Contentwrapper {
+  padding: 2em 20px 3em;
+  background: white;
+}
+#Contentwrapper > main {
+  margin-right: 200px;
+}
+
+#BoxesRight {
+  float: right;
+  width: 180px;
+  margin-left: 20px;
+  background: #ccebf0;
+}
+
+#Pagefooter {
+  position: relative;
+  min-height: 120px;
+  background: #009cb3;
+  color: white;
+  text-align: center;
+}
+#Pagefooter::before {
+  content: '';
+  position: relative;
+  top: 0;
+  height: 16px;
+  width: 100%;
+  display: block;
+  background: rgba(0, 0, 0, 0.3);
+  /* Color fallback */
+  background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  /* For Opera 11.1 to 12.0 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), transparent);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+#Pagefooter a, #Pagefooter a:link, #Pagefooter a:visited, #Pagefooter a:active {
+  color: #314cb6;
+}
+#Pagefooter a:hover {
+  /*
+      color: rgb(255, 200, 87);
+  */
+}
+
+div#tabs {
+  background: #eee6e6;
+}
+
+/* Links */
+a, a:link, a:visited, a:active {
+  color: white;
+  text-decoration: none;
+}
+
+a.admin, a.admin:link, a.admin:visited, a.admin:active {
+  color: #8f2d56;
+}
+
+a:hover, a.admin:hover {
+  color: #ffc857;
+  text-decoration: underline;
+}
+
+/* Boxes */
+.Box {
+  position: relative;
+  margin-bottom: 1em;
+  padding: 0;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.BoxHeadline {
+  margin: 0;
+  border-bottom: 1px solid #006d7d;
+  padding: 4px 4px 4px 8px;
+  background: #009cb3;
+  text-shadow: 1px -1px #006d7d;
+  font-size: 1em;
+  font-weight: bold;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.BoxHeadline li, .BoxHeadline a {
+  color: white;
+  text-shadow: 1px -1px #006d7d;
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+}
+
+.BoxCaption {
+  width: 144px;
+}
+
+.BoxHelpClose a:hover {
+  color: #ffc857;
+}
+
+ul.BoxContent {
+  padding: 4px 4px 4px 8px;
+  background: rgba(0, 156, 179, 0.2);
+  border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  -webkit-border-radius: 0 0 4px 4px;
+  color: black;
+}
+
+li.box_entry, li.box_entry_active {
+  margin: 0;
+  padding: 1px 0 2px 16px;
+  background-position: 0 2px;
+}
+
+span.AdminIcons {
+  background-position: 8px 2px;
+}
+
+/* == Main Design ==============================*/
+.Headline h1 {
+  font-size: 2.8em;
+  font-family: Righteous, Sans-Serif;
+  font-weight: normal;
+  color: white;
+  text-shadow: 1px -1px #006d7d;
+}
+
+#Content .HeadlineSub {
+  border-top: 1px solid #006d7d;
+  border-bottom: 0 none;
+  padding: 0.3em 0 1em;
+  font-size: 1.1em;
+  color: #006d7d;
+}
+
+#Content .Line {
+  border: 0 none;
+  padding: 1em 0;
+}
+
+.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
+  background: #009cb3;
+  border-bottom: 1px solid #006d7d;
+  color: white;
+  text-shadow: 1px -1px #006d7d;
+  font-size: 1em;
+  padding: 4px 4px 4px 8px;
+}
+
+.row_key a, .mastersearch2_search_row_key a, .mastersearch2_result_row_key a {
+  text-shadow: 1px -1px white;
+}
+
+.row_value, .mastersearch2_search_row_value, .mastersearch2_result_row_value, .mastersearch2_search_row_value_highlighted, .mastersearch2_search_row_value_important {
+  background: rgba(255, 255, 255, 0.6);
+  /*font-size: 1em;*/
+}
+
+#Content .Information {
+  background: #ffc857;
+}
+
+input, textarea, select {
+  color: black;
+  background: white;
+  border: 1px solid #009cb3;
+  margin: 1px;
+}
+
+.form_optional {
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #009cb3;
+}
+
+/*# sourceMappingURL=style.css.map */

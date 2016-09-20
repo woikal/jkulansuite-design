@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <group>
+    <head>
+      <name>Partyeinstellungen</name>
+    </head>
+    <items>
+    	<item>
+    		<name>signon_partyid</name>
+    		<type>int</type>
+    		<default>1</default>
+    		<description>Bitte Standart Party festlegen (Nummer muss existieren)</description>
+    	</item>
+    </items>
+  </group>
+  <group>
+    <head>
+      <name>Auto-Checkin und Auto-Paid</name>
+    </head>
+    <items>
+    	<item>
+    		<name>signon_autocheckin</name>
+    		<type>boolean</type>
+    		<default>0</default>
+    		<description>Sollen neu angemeldete User automatisch eingecheckt werden?</description>
+    	</item>
+    	<item>
+    		<name>signon_autopaid</name>
+    		<type>boolean</type>
+    		<default>0</default>
+    		<description>Sollen neu angemeldete User automatisch auf bezahlt gesetzt werden?</description>
+    	</item>
+    </items>
+  </group>
+	<group>
+		<head>
+			<name>Anzeigeeinstellungen</name>
+		</head>
+		<items>
+			<item>
+	    		<name>display_change_party</name>
+	    		<type>boolean</type>
+	    		<default>1</default>
+	    		<description>Soll jeder User auf der Startseite und im Anmeldedialog seine default Party auswählen dürfen?</description>
+	    	</item>
+    	</items>
+	</group>
+</config>

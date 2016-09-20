@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<lansuite>
+	<header>
+		<filetype>LanSuite</filetype>
+		<version>2.0</version>
+		<source>http://www.lansuite.de</source>
+		<date>2010-01-02 05:47</date>
+	</header>
+	<table>
+		<table_head>
+			<name>translation</name>
+		</table_head>
+		<content>
+			<entry>
+				<id>c78b743f36e25f1eb8897dbe06ee6dd8</id>
+				<org>Wirklich L&amp;ouml;schen?</org>
+				<en>Really Delete?</en>
+				<es>Realmente ¿Borrar?</es>
+				<fr>Voulez vous vraiment supprimer?</fr>
+				<nl>Echt verwijderen?</nl>
+				<it>Eliminare?</it>
+				<file>beamer</file>
+			</entry>
+			<entry>
+				<id>1c1065bf27ca3805cdf7ebd323f9bbcb</id>
+				<org>Beamerfenster starten</org>
+				<en>Start beamer box</en>
+				<es>Cuadro de proyector de inicio</es>
+				<fr>Début Beamer case</fr>
+				<nl>Start beamer doos</nl>
+				<it>Casella Inizia videoproiettore</it>
+				<file>beamer</file>
+			</entry>
+			<entry>
+				<id></id>
+				<org></org>
+				<file>beamer</file>
+			</entry>
+		</content>
+	</table>
+</lansuite>

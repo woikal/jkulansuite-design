@@ -1,0 +1,43 @@
+// color definitions
+$cPrim: rgb(0, 156, 179);
+
+$colPrimD2: mix($cPrim, black, 60); // ~rgb(0,109,125)
+$colPrimD1: mix($cPrim, black, 70);
+$colPrimL1: mix($cPrim, white, 20);
+$colPrimL2: mix($cPrim, white, 10);
+
+$colSecL: white;
+$colSecD: black;
+
+$colShadows1: rgba(black, 0.3);
+
+// img paths (Backgrounds)
+$imgDummy: url('../images/jku-lan_logo.png');
+
+/*Primärfarben Hilfsfarben Akzentfarben mild Akzentfarben intensiv
+#009cb3
+(0,156,179)
+#006d7d
+(0, 109, 125)
+#74a57f
+(116, 165, 127)
+#99c24d
+(153, 194, 77)
+#ffffff
+(255, 255, 255)
+#000000
+(0, 0, 0)
+#314cb6
+(49, 76, 182)
+#ffc857
+(255, 200, 87)
+#36f1cd
+(54, 241, 205)
+#8f2d56
+(143, 45, 86)
+Logo, Banner, Hintergrundfarbe,
+Schriften auf dunkelm
+Untergrund
+Schatten, Effekte, Ränder,
+Schriften auf hellem Untergrund
+Hyperlinks, Icons Hyperlinks, Icons*/
