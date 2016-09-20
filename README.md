@@ -1,1 +1,1 @@
-# jkulansuite-design
+lansuite-frontend

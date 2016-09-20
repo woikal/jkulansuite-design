@@ -1,0 +1,330 @@
+@import 'colors';
+
+/* Overall Layout Definition */
+// Configs:
+$siteWidth: 1140px;
+$spacing: 30px;
+$contentWidth: 740px;
+$sidebarWidth: $siteWidth - $spacing - $contentWidth;
+
+$topHeight: 32px;
+$navHeight: 60px; // 70?
+$bannerHeight: 140px;
+
+$headerHeight: 40px;
+$footerHeight: 100px;
+
+$shadowHeight: 8px;
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: $siteWidth;
+  margin: 0 auto;
+}
+
+body {
+  background: $imgBackground center top repeat-y, $colLight1;
+  background-size: 1400px;
+}
+
+header {
+  position: relative;
+}
+
+#authbar {
+  position: relative;
+  height: $topHeight;
+  background-color: rgba(white, 0.3);
+  & > p {
+    padding: .4em 1em;
+    text-align: right;
+    font-size: .8em;
+    font-weight: bold;
+  }
+}
+
+#navbar {
+  position: absolute;
+  top: $topHeight;
+  z-index: 1;
+  width: 100%;
+  height: $navHeight;
+  @include linear-gradient(to bottom, $colLight2 0%, $colLight1 25%, $colLight2 100%);
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: $shadowHeight;
+  }
+  &::before {
+    top: -$shadowHeight;
+    @include linear-gradient(to top, rgba($colShadow, .4), transparent);
+  }
+  &::after {
+    bottom: -$shadowHeight;
+    @include linear-gradient(to bottom, rgba($colShadow, .4), transparent);
+  }
+
+  &.fixed { // jQuery
+    position: fixed;
+    top: 0;
+  }
+
+  & > ul {
+    padding: 0;
+    & > li:first-child {
+      border-left-color: $colLight2;
+    }
+    & > li {
+      display: inline-block;
+      margin: 0;
+
+      border: 0 none transparent;
+      border-right: 1px solid $colLight2;
+      border-left: 1px solid rgba($colLight1, .01);
+
+      a, a:active, a:visited, a:link, a:hover {
+        display: block;
+        height: $navHeight;
+
+        padding: 0 18px;
+        line-height: $navHeight;
+        color: $colText;
+        font-weight: bold;
+        text-decoration: none;
+
+        transition: color 0.1s linear 0s;
+
+      }
+      & > ul {
+        visibility: hidden; /* hides sub-menu */
+        opacity: 0;
+        position: absolute;
+        margin-left: -1px;
+        z-index: 1;
+
+        @include linear-gradient(to right, $colCyan 5%, rgba($colCyan, .6) 80%, transparent 100%);
+        @include no-border;
+        border-left: 1px solid $colOcher;
+        padding: 0 1em;
+        list-style: none;
+
+        transition: all 0.5s ease 0s, visibility 0s linear 0.5s;
+
+        & > li {
+        }
+      }
+      &:hover { // mouseOver
+        @include linear-gradient(to bottom, rgba($colCyan, .7) 0%, rgba($colCyan, .5) 25%, rgba($colCyan, .7) 100%);
+        border-color: $colOcher;
+
+        a, a:active, a:link, a:visited, a:hover {
+          color: $colTextInv;
+          text-shadow: 0 0 5px rgba($colText, .9);
+
+        }
+
+        & > ul {
+          visibility: visible; /* shows sub-menu */
+          opacity: 1;
+          transition-delay: 0s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+        }
+      }
+    }
+  }
+}
+
+#bannerbar {
+  position: relative;
+  margin-top: $navHeight;
+  width: 100%;
+  height: $bannerHeight;
+  overflow: hidden;
+
+  background: rgba(white, 0.5);
+  border-bottom: 1px solid $colLight2;
+
+  padding-top: 10px;
+
+}
+
+#logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 16px;
+  float: left;
+
+  background: $imgLogo;
+}
+
+#banner {
+  position: relative;
+  top: 15px;
+  width: 530px;
+  height: 90px;
+  margin: 0 16px;
+  float: left;
+
+  background: $imgBanner;
+}
+
+#mainblock {
+  padding: 2em 0;
+  border-top: 1px solid white;
+}
+
+#content {
+  width: $contentWidth;
+  float: left;
+  margin-right: $spacing;
+}
+
+#sidebar {
+  width: $sidebarWidth;
+  float: left;
+}
+
+footer {
+  position: relative;
+  min-height: $footerHeight;
+  margin-top: 2em;
+  background: $colCyan;
+  border-top: 3px solid $colOcher;
+  padding-bottom: 1em;
+  color: $colDark1;
+
+  &::before {
+    content: '';
+    display: block;
+    position: relative;
+    top: 0;
+    height: 2*$shadowHeight;
+    width: 100%;
+    @include linear-gradient(to bottom, rgba(black, .3), transparent);
+  }
+}
+
+.sitemap {
+  float: left;
+  width: 25%;
+  font-size: .9em;
+}
+
+.copyright {
+  &::before {
+    content: '';
+    display: block;
+    height: $shadowHeight;
+    width: 100%;
+    @include linear-gradient(to bottom, $colShadow, transparent)
+  }
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6em;
+  text-align: center;
+  font-size: .8em;
+
+}
+
+#help {
+  position: fixed;
+  //top: 50%;
+  left: 0;
+  height: 80px;
+  width: 30px;
+}
+
+#scrollTop {
+  display: none; // jQuery hook
+  user-select: none;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+
+  background: $colCyan;
+  @include box-shadow(1px 2px $shadowHeight $colShadow);
+
+  border: 2px solid $colOcher;
+  @include rounded-border(8px);
+  padding: .4em;
+  color: $colLight2;
+  font-weight: bolder;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
+  /* non-prefixed version, currently
+                         not supported by any browser */
+}
+
+#notification {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  transition: top 0.7s; //TODO add animation if needed
+  // elementwise?
+  &.notify {
+    top: 0;
+  }
+  & > div {
+    padding: .5em 2em;
+    background: rgba($colCyan, .8);
+    border: 3px solid $colOcher;
+    border-top: 0 none;
+    @include rounded-border(0 0 8px 8px);
+    @include box-shadow(0 0 10px rgba(black, 0.3));
+
+    p {
+      text-align: center;
+      color: $colNotificationText;
+      font-weight: bold;
+    }
+  }
+
+}
+
+.newsitem {
+  display: block;
+  width: 100%;
+
+  article {
+    position: relative;
+    float: right;
+    min-height: 180px;
+    width: 482px;
+    margin: .6em 0;
+
+    background: rgba($colLight2, .8);
+    @include rounded-border(8px);
+
+    padding: 1em;
+
+    img {
+      position: absolute;
+      //float: left;
+      left: -270px;
+      top: 0;
+      height: 180px;
+      width: 250px;
+    }
+    h2 {
+    }
+    p {
+      text-shadow: 1px 1px $colLight1;
+    }
+  }
+
+}

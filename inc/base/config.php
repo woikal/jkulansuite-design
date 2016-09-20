@@ -2,19 +2,19 @@
 
 [lansuite]
 version				= "SVN"
-default_design			= "simple"
+default_design			= "jku-lan-modern"
 chmod_dir			= "777"
 chmod_file			= "666"
 debugmode			= "0"
 
 [database]
 server				= "localhost"
-user				= "ls"
-passwd				= "hnxls"
+user				= "lansuite"
+passwd				= "password"
 database			= "lansuite"
 prefix				= "ls_"
 
 [environment]
-configured			= "0"
+configured			= "1"
 
 ;*/ ?>

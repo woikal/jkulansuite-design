@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<design>
+	<name>JKU LAN simple</name>
+	<description>Standart JKU LAN Design, basierend auf "simple" von Jochen Jung</description>
+	<version>0.2</version>
+	<author>Alexander Woike</author>
+	<contact>lan@oeh.jku.at</contact>
+	<website>lan.oeh.jku.at</website>
+	<comments>This version is a work in progress and my or may not include errors, bad designs and elements for visual testing.</comments>
+</design>

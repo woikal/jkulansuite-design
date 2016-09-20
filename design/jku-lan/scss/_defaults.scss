@@ -1,0 +1,104 @@
+/* Defaults */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, address, code,
+em, img,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  color: $colDark1;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1;
+}
+
+h1 {
+}
+
+h2 {
+  font-size: 1.6em;
+  margin: .2em 0 .4em;
+}
+
+hr {
+  width: 96%;
+  clear: both;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: $colMedium2 transparent white;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a, a:link, a:active, a:visited {
+  color: $colCyan;
+  text-decoration: none;
+  text-shadow: 1px 2px 2px $colLight1;
+}
+
+a:hover {
+  color: $colOcher;
+  text-shadow: 1px 2px 2px $colMedium2;
+}
+
+:focus {
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Forms */
+#authform {
+  margin: 1.2em;
+  padding: .6em .2em .2em;
+  background: $colLight1;
+}
+
+fieldset {
+  border: 2px solid $colCyan;
+  @include rounded-border(6px);
+  color: $colCyan;
+
+  padding: 1em;
+}
+
+.placeholder {
+  background: $colLight1;
+  border: 1px solid $colDark2;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+  &::before, &::after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+}

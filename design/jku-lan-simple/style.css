@@ -1,0 +1,347 @@
+/*
+Lansuite Style-Definitions JKU LAN simple
+*/
+/* Main-Template */
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,300,400';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+@import 'https://fonts.googleapis.com/css?family=Righteous';
+@import 'https://fonts.googleapis.com/css?family=Black+Ops+One';
+@import 'https://fonts.googleapis.com/css?family=Alegreya:700';
+
+/* font-family: 'Roboto Condensed', sans-serif; */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    font-size: 12px;
+    margin: 0;
+    background: rgb(0, 156, 179);
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    float: none;
+    clear: both;
+}
+
+#Sitewrapper {
+    background: white;
+    padding-bottom: 2em;
+}
+
+#DateLogout {
+    position: relative;
+    padding: 0.2em 1em;
+    background: rgb(255, 255, 255);
+    text-align: right;
+    font-size: 0.9em;
+}
+
+#LansuiteFullscreen {
+    position: relative;
+    font-size: 0.9em;
+    background: rgb(0, 109, 125);
+}
+
+#Mainheader {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 140px;
+    overflow: visible;
+    padding: 0;
+
+    background: rgb(0, 109, 125);
+    background: -o-linear-gradient(to bottom, rgb(0, 109, 125) 0%, rgb(0, 156, 179) 75%, rgb(0, 109, 125) 100%);
+    background: -webkit-linear-gradient(top, rgb(0, 109, 125) 0%, rgb(0, 156, 179) 75%, rgb(0, 109, 125) 100%);
+    background: linear-gradient(to bottom, rgb(0, 109, 125) 0%, rgb(0, 156, 179) 75%, rgb(0, 109, 125) 100%);
+}
+
+#Logo {
+    height: 220px;
+    width: auto;
+    float: left;
+    margin: -40px 1em;
+    border: 0 none;
+}
+
+#Pagetitle {
+    float: left;
+    margin: 0 0.05em;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Roboto';
+    font-size: 7rem;
+    font-weight: 100;
+    line-height: 140px;
+    color: rgb(255, 255, 255);
+    /**/
+}
+
+#Banner {
+    position: absolute;
+    display: table;
+    right: 2em;
+    top: 10px;
+    overflow: hidden;
+    height: 120px;
+}
+
+#Banner a {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#Banner img {
+    max-height: 120px !important;
+}
+
+#Sitecontent {
+    padding: 2em 8px;
+}
+
+.content-wrapper {
+    margin: auto 196px; /* box + margin */
+    padding: 1em 8px 3em;
+    background: rgba(0, 156, 179, 0.2);
+}
+
+#ContentFullscreen {
+    margin: 0px 2px 10px 2px;
+    padding: 8px 4px 10px 8px;
+    background: #eee6e6;
+}
+
+#BoxesLeft {
+    float: left;
+    width: 180px;
+}
+
+#BoxesRight {
+    float: right;
+    width: 180px;
+}
+
+#Footer {
+    position: relative;
+    min-height: 120px;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+#Footer:before {
+    content: '';
+    position: relative;
+    top: 0;
+    height: 16px;
+    width: 100%;
+    display: block;
+
+    background: rgba(0, 0, 0, 0.3);
+    background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), transparent);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+
+#Footer a, #Footer a:link, #Footer a:visited, #Footer a:active {
+    color: rgb(49, 76, 182);
+}
+
+#Footer a:hover {
+    /*
+        color: rgb(255, 200, 87);
+    */
+}
+
+div#tabs {
+    background: #eee6e6;
+}
+
+/* Links */
+a, a:link, a:visited, a:active {
+    color: rgb(49, 76, 182);
+    text-decoration: none;
+}
+
+a.admin, a.admin:link, a.admin:visited, a.admin:active {
+    color: rgb(143, 45, 86);
+}
+
+a:hover, a.admin:hover {
+    color: rgb(255, 200, 87);
+    text-decoration: underline;
+}
+
+/* Boxes */
+.Box {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 0;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.BoxHeadline {
+    margin: 0;
+    border-bottom: 1px solid #006d7d;
+    padding: 4px 4px 4px 8px;
+    background: rgb(0, 156, 179);
+    text-shadow: 1px -1px #006d7d;
+    font-size: 1em;
+    font-weight: bold;
+    list-style: none;
+    white-space: nowrap;
+}
+
+.BoxHeadline li, .BoxHeadline a {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px -1px rgb(0, 109, 125);
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+
+}
+
+.BoxCaption {
+    width: 144px;
+}
+
+.BoxHelpClose a:hover {
+    color: #ffc857;
+}
+
+ul.BoxContent {
+    padding: 4px 4px 4px 8px;
+    background: rgba(0, 156, 179, .2);
+    border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    color: rgb(0, 0, 0);
+}
+
+li.box_entry, li.box_entry_active {
+    margin: 0;
+    padding: 1px 0 2px 16px;
+    background-position: 0 2px;
+}
+
+span.AdminIcons {
+    background-position: 8px 2px;
+}
+
+/* == Main Design ==============================*/
+
+.Headline h1 {
+    font-size: 2.8em;
+    /*font-family: 'Righteous', Sans-Serif;*/
+    font-family: 'Alegreya', serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px -1px rgb(0, 109, 125);
+}
+
+#Content .HeadlineSub {
+    border-top: 1px solid rgb(0, 109, 125);
+    border-bottom: 0 none;
+    padding: 0.3em 0 1em;
+    font-size: 1.1em;
+    color: rgb(0, 109, 125);
+
+}
+
+ul.LineFirst, ul.Line {
+    clear: none;
+    height: auto;
+    margin: 0 0 1em;
+    border: 0 none;
+}
+
+ul.LineFirst > li, ul.Line > li {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+    margin: 0;
+    padding: 0.8em;
+
+    /*    border: 1px dashed green;*/
+}
+
+li.LineLeftHalf, li.LineRightHalf {
+    width: 50%;
+}
+
+li.LineLeft {
+    width: 24%;
+}
+
+li.LineRight {
+    width: 75%
+}
+
+ul.Line > li.Information {
+    width: 100%;
+    margin-top: 1.6em;
+    background: rgb(255, 200, 87);
+}
+ul.Line > li.Confiramtion {
+    width: 100%;
+    margin-top: 1.6em;
+    background: rgb(153, 194, 77);
+}
+
+.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
+    background: rgb(0, 156, 179);
+    border-bottom: 1px solid rgb(0, 109, 125);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px -1px rgb(0, 109, 125);
+    font-size: 1em;
+    padding: 4px 4px 4px 8px;
+
+}
+
+.row_key a, .mastersearch2_search_row_key a, .mastersearch2_result_row_key a {
+    text-shadow: 1px -1px rgb(255, 255, 255);
+}
+
+.row_value, .mastersearch2_search_row_value, .mastersearch2_result_row_value, .mastersearch2_search_row_value_highlighted, .mastersearch2_search_row_value_important {
+    background: rgba(255, 255, 255, .6);
+    /*font-size: 1em;*/
+}
+
+.ui-helper-clearfix {
+    display: inline-block;
+}
+
+fieldset[style] {
+    clear: none !important;
+}
+
+input, textarea, select {
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 156, 179);
+    margin: 1px;
+}
+
+.form_optional {
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, .5);
+    border: 1px solid rgb(0, 156, 179);
+}
+
