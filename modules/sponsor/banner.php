@@ -26,7 +26,7 @@ else {
   // If no Banner-Thumb was found, use LanSuite default banner
   if ($file_name == '') $file_name = 'ext_inc/banner/one_network_banner.jpg';
 
-  $code = '<img src="'. $file_name .'" border="1" width="468" height="60" class="img_border" title="'. $banner['name'] .'" alt="Sponsor Banner"/>';
+  $code = '<img src="'. $file_name .'" class="img_border" height="60" title="'. $banner['name'] .'" alt="Sponsor Banner"/>';
 
   // Link banner, if in online mode
   if ($cfg['sys_internet'] and $banner["sponsorid"]) $code = '<a href="index.php?mod=sponsor&amp;action=bannerclick&amp;design=base&amp;type=banner&amp;sponsorid='. $banner["sponsorid"] .'" target="_blank">'. $code .'</a>';
