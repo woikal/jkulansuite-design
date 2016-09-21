@@ -140,6 +140,7 @@ html, body {
 #BoxesRight {
   float: right;
   width: 180px;
+  .BoxContent{padding: 1em;}
 }
 
 /* Boxes */
@@ -310,7 +311,7 @@ a {
   font-family: 'Alegreya', serif;
   font-weight: bold;
   color: $colLightest;
-  text-shadow: 1px -1px 4px $colDarker;
+  text-shadow: 0 0 4px $colDarker;
 }
 
 div.HeadlineSub {

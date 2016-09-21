@@ -140,6 +140,9 @@ html, body {
   float: right;
   width: 180px;
 }
+#BoxesRight .BoxContent {
+  padding: 1em;
+}
 
 /* Boxes */
 .Box {
@@ -291,7 +294,7 @@ a:hover, a:active {
   font-family: 'Alegreya', serif;
   font-weight: bold;
   color: white;
-  text-shadow: 1px -1px 4px #003c44;
+  text-shadow: 0 0 4px #003c44;
 }
 
 div.HeadlineSub {
