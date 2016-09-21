@@ -72,9 +72,7 @@ html, body {
   padding: 0;
 
   background: $colDark;
-  background: -o-linear-gradient(to bottom, $colDark 0%, $colPrim 75%, $colDark 100%);
-  background: -webkit-linear-gradient(top, $colDark 0%, $colPrim 75%, $colDark 100%);
-  background: linear-gradient(to bottom, $colDark 0%, $colPrim 75%, $colDark 100%);
+  @include linear-gradient(to bottom, $colDark 0%, $colPrim 75%, $colDark 100%);
 }
 
 #Logo {
@@ -90,7 +88,7 @@ html, body {
   margin: 0 16px;
   padding: 0;
   overflow: hidden;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-size: 5rem;
   font-weight: lighter;
   line-height: 100px;
@@ -129,7 +127,7 @@ html, body {
 }
 
 #ContentFullscreen {
-  margin: 0px 2px 10px 2px;
+  margin: 0px 2px 10px 2px; //TODO
   padding: 8px 4px 10px 8px;
   background: #eee6e6;
 }
@@ -207,19 +205,17 @@ li.box_entry, li.box_entry_active, li.box_entry_lvl_1, li.box_entry_lvl_1_active
     text-decoration: none;
   }
   &:hover {
-    background: $colAccent3;
-
     a, a:link, a:visited, a:hover, a:active {
+      background: $colAccent3;
       color: $colAccent3Darker;
     }
   }
 }
 
-li.box_entry_lvl_1 a, li.box_entry_lvl_1_active a, span.AdminIcons a {
-  &, &:link, &:visited, &:hover, &:active {
+li.box_entry_lvl_1, li.box_entry_lvl_1_active, span.AdminIcons {
+  a, a:link, a:visited, a:hover, a:active {
     padding-left: 2.8em;
   }
-
 }
 
 a.admin {
@@ -232,8 +228,8 @@ li.box_entry_active a, li.box_entry_lvl_1_active a {
   &, &:link, &:visited, &:hover, &:active {
     color: $colLightest;
     text-shadow: 0 0 6px $colDarker;
-  }
 
+  }
   &.admin {
     &, &:link, &:visited, &:hover, &:active {
       color: $colLightest;
@@ -242,23 +238,27 @@ li.box_entry_active a, li.box_entry_lvl_1_active a {
   }
 }
 
+/* --info popup -- */
 a:hover span.infobox {
-  top: 20px;
-  left: 1em;
+  top: -0.8em;
+  left: 170px;
   width: 100%;
   background: $colLightest;
   border: 1px solid $colDark;
-  @include rounded-border(0 3px 3px 3px);
+  @include rounded-border(0 5px 5px 5px);
   color: $colDark;
+  text-shadow: none;
 
   &:before {
     content: '';
     display: block;
     position: absolute;
-    border-width: 0 10px 10px 0;
+    top: -1px;
+    left: -16px;
+    border-width: 0 16px 16px 0;
     border-style: solid;
     border-color: transparent;
-    border-bottom-color: white;
+    border-right-color: $colDark;
   }
 }
 
@@ -280,9 +280,7 @@ a:hover span.infobox {
     display: block;
 
     background: rgba(0, 0, 0, 0.3);
-    background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), transparent);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
   }
 }
 
@@ -304,7 +302,7 @@ a {
   }
 }
 
-/* == Main Design ==============================*/
+/* == Main Design == */
 
 .Headline h1 {
   font-size: 2.8em;

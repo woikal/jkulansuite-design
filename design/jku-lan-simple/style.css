@@ -66,7 +66,10 @@ html, body {
   overflow: visible;
   padding: 0;
   background: #006d7d;
+  background: #006d7d;
+  /* Color fallback */
   background: -o-linear-gradient(to bottom, #006d7d 0%, #009cb3 75%, #006d7d 100%);
+  /* For Opera 11.1 to 12.0 */
   background: -webkit-linear-gradient(top, #006d7d 0%, #009cb3 75%, #006d7d 100%);
   background: linear-gradient(to bottom, #006d7d 0%, #009cb3 75%, #006d7d 100%);
 }
@@ -84,7 +87,7 @@ html, body {
   margin: 0 16px;
   padding: 0;
   overflow: hidden;
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   font-size: 5rem;
   font-weight: lighter;
   line-height: 100px;
@@ -195,10 +198,8 @@ li.box_entry a, li.box_entry a:link, li.box_entry a:visited, li.box_entry a:hove
   padding: 0.3em 1.4em;
   text-decoration: none;
 }
-li.box_entry:hover, li.box_entry_active:hover, li.box_entry_lvl_1:hover, li.box_entry_lvl_1_active:hover, span.AdminIcons:hover {
-  background: #ffae00;
-}
 li.box_entry:hover a, li.box_entry:hover a:link, li.box_entry:hover a:visited, li.box_entry:hover a:hover, li.box_entry:hover a:active, li.box_entry_active:hover a, li.box_entry_active:hover a:link, li.box_entry_active:hover a:visited, li.box_entry_active:hover a:hover, li.box_entry_active:hover a:active, li.box_entry_lvl_1:hover a, li.box_entry_lvl_1:hover a:link, li.box_entry_lvl_1:hover a:visited, li.box_entry_lvl_1:hover a:hover, li.box_entry_lvl_1:hover a:active, li.box_entry_lvl_1_active:hover a, li.box_entry_lvl_1_active:hover a:link, li.box_entry_lvl_1_active:hover a:visited, li.box_entry_lvl_1_active:hover a:hover, li.box_entry_lvl_1_active:hover a:active, span.AdminIcons:hover a, span.AdminIcons:hover a:link, span.AdminIcons:hover a:visited, span.AdminIcons:hover a:hover, span.AdminIcons:hover a:active {
+  background: #ffae00;
   color: #6f4c00;
 }
 
@@ -219,25 +220,29 @@ li.box_entry_active a.admin, li.box_entry_active a.admin:link, li.box_entry_acti
   text-shadow: 0 0 6px #6f0800;
 }
 
+/* --info popup -- */
 a:hover span.infobox {
-  top: 20px;
-  left: 1em;
+  top: -0.8em;
+  left: 170px;
   width: 100%;
   background: white;
   border: 1px solid #006d7d;
-  -webkit-border-radius: 0 3px 3px 3px;
-  -moz-border-radius: 0 3px 3px 3px;
-  border-radius: 0 3px 3px 3px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  border-radius: 0 5px 5px 5px;
   color: #006d7d;
+  text-shadow: none;
 }
 a:hover span.infobox:before {
   content: '';
   display: block;
   position: absolute;
-  border-width: 0 10px 10px 0;
+  top: -1px;
+  left: -16px;
+  border-width: 0 16px 16px 0;
   border-style: solid;
   border-color: transparent;
-  border-bottom-color: white;
+  border-right-color: #006d7d;
 }
 
 /* -- Site Footer -- */
@@ -257,7 +262,10 @@ a:hover span.infobox:before {
   margin-bottom: 120px;
   display: block;
   background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  /* Color fallback */
   background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  /* For Opera 11.1 to 12.0 */
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), transparent);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
 }
@@ -276,7 +284,7 @@ a:hover, a:active {
   text-decoration: underline;
 }
 
-/* == Main Design ==============================*/
+/* == Main Design == */
 .Headline h1 {
   font-size: 2.8em;
   /*font-family: 'Righteous', Sans-Serif;*/
