@@ -47,7 +47,7 @@ html, body {
 }
 
 #Sitewrapper {
-  background: $colSec;
+  background: $colLightest;
   padding-bottom: 2em;
 }
 
@@ -60,7 +60,7 @@ html, body {
 #LansuiteFullscreen {
   font-size: 0.9em;
   background: $colDark;
-  color: $colSec;
+  color: $colLightest;
 }
 
 #Mainheader {
@@ -94,7 +94,7 @@ html, body {
   font-size: 5rem;
   font-weight: lighter;
   line-height: 100px;
-  color: $colSec;
+  color: $colLightest;
   /**/
 }
 
@@ -109,10 +109,13 @@ html, body {
   a {
     display: table-cell;
     vertical-align: middle;
+    border: 0 none;
   }
   img {
     max-height: 84px !important;
     height: 100%;
+    width: auto;
+    border: 0 none;
   }
 }
 
@@ -161,7 +164,7 @@ html, body {
   white-space: nowrap;
 
   li, a, a:link, a:visited {
-    color: $colSec;
+    color: $colLightest;
     text-shadow: 1px -1px $colDark;
     text-decoration: none;
     list-style: none;
@@ -183,40 +186,83 @@ html, body {
 }
 
 ul.BoxContent {
-  padding: 4px 4px 4px 8px;
+  padding: 0;
   background: $colLight;
-  color: $colSecInv;
+  color: $colDarkest;
   @include rounded-border(0 0 4px 4px);
 
-  a, a:link, a:visited {
-    color: $colLinkMenu;
-  }
-  a:hover, a:active {
-    color: $colLinkMenuHL;
-  }
-  a.admin {
-    &, &:link, &:visited {
-      color: $colLinkSpec;
-      text-decoration: none;
-    }
-    &:hover, &:active {
-      color: $colLinkSpecHL;
-      text-decoration: underline;
-    }
-  }
-
 }
 
-li.box_entry, li.box_entry_active {
+li.box_entry, li.box_entry_active, li.box_entry_lvl_1, li.box_entry_lvl_1_active, span.AdminIcons {
+  display: block;
+  width: 100%;
   margin: 0;
-  padding: 1px 0 2px 16px;
-  background-position: 0 2px;
+  padding: 0;
+  background: none;
+
+  a, a:link, a:visited, a:hover, a:active {
+    display: inline-block;
+    width: 100%;
+    padding: 0.3em 1.4em;
+    text-decoration: none;
+  }
+  &:hover {
+    background: $colAccent3;
+
+    a, a:link, a:visited, a:hover, a:active {
+      color: $colAccent3Darker;
+    }
+  }
 }
 
-span.AdminIcons {
-  background-position: 8px 2px;
+li.box_entry_lvl_1 a, li.box_entry_lvl_1_active a, span.AdminIcons a {
+  &, &:link, &:visited, &:hover, &:active {
+    padding-left: 2.8em;
+  }
+
 }
 
+a.admin {
+  &, &:link, &:visited, &:hover, &:active {
+    color: $colAccent1;
+  }
+}
+
+li.box_entry_active a, li.box_entry_lvl_1_active a {
+  &, &:link, &:visited, &:hover, &:active {
+    color: $colLightest;
+    text-shadow: 0 0 6px $colDarker;
+  }
+
+  &.admin {
+    &, &:link, &:visited, &:hover, &:active {
+      color: $colLightest;
+      text-shadow: 0 0 6px $colAccent1Darker;
+    }
+  }
+}
+
+a:hover span.infobox {
+  top: 20px;
+  left: 1em;
+  width: 100%;
+  background: $colLightest;
+  border: 1px solid $colDark;
+  @include rounded-border(0 3px 3px 3px);
+  color: $colDark;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-width: 0 10px 10px 0;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: white;
+  }
+}
+
+/* -- Site Footer -- */
 #Footer {
   position: relative;
   min-height: 220px;
@@ -246,23 +292,15 @@ div#tabs {
 
 /* Links */
 a {
-  &, &:link, &:visited {
-    color: $colLink;
-    text-decoration: none;
-  }
-  &:hover, &:active {
-    color: $colLinkHL;
-    text-decoration: underline;
-  }
-
-}
-
-a.menu {
-  &, &:link, &:visited {
-    color: $colLinkMenu;
-  }
-  &:hover, &:active {
-    color: $colLinkMenuHL;
+  & {
+    &, &:link, &:visited {
+      color: $colLink;
+      text-decoration: none;
+    }
+    &:hover, &:active {
+      color: $colLinkHL;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -273,7 +311,7 @@ a.menu {
   /*font-family: 'Righteous', Sans-Serif;*/
   font-family: 'Alegreya', serif;
   font-weight: bold;
-  color: $colBG;
+  color: $colLightest;
   text-shadow: 1px -1px 4px $colDarker;
 }
 
@@ -314,12 +352,15 @@ ul.LineFirst, ul.Line {
 
     &.Information {
       background: $colInformation;
+      padding: 1em;
     }
     &.Confirmation {
       background: $colConfirmation;
+      padding: 1em;
     }
     &.Err {
       background: $colError;
+      padding: 1em;
     }
   }
 }
@@ -327,7 +368,7 @@ ul.LineFirst, ul.Line {
 .row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
   background: $colPrim;
   border-bottom: 1px solid $colDark;
-  color: $colBG;
+  color: $colLightest;
   text-shadow: 1px -1px $colDark;
   font-size: 1em;
   padding: 4px 4px 4px 8px;
@@ -336,7 +377,7 @@ ul.LineFirst, ul.Line {
 
 .row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
   a, a:link, a:visited {
-    color: $colBG;
+    color: $colLightest;
     text-decoration: underline;
 
   }
@@ -361,29 +402,36 @@ fieldset[style] {
 }
 
 input, textarea, select {
-  color: $colSecInv;
-  background: $colSec;
+  color: $colDarkest;
+  background: $colLightest;
   border: 1px solid $colPrim;
   margin: 1px;
 }
 
 .form_optional {
-  color: $colSecInv;
+  color: $colDarkest;
   background: $colPrimLighter;
   border: 1px solid $colPrim;
 }
 
 ol.agb {
+  margin: 0;
+  padding: 0;
   list-style-type: upper-roman;
+  font-weight: bold;
+  text-align: justify;
+  & > li {
+    margin: 0 0 1.4em;
 
-  h3 {
-  }
-  li {
-
-    ol {
+    & > ol {
+      margin: 1em 0;
+      padding-left: 1em;
+      font-weight: normal;
       list-style-type: decimal;
-      li {
 
+      & > li {
+        margin: 0 0 1em 0;
+        text-indent: 1.4em;
       }
     }
   }
