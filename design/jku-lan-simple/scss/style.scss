@@ -1,0 +1,408 @@
+/*
+Lansuite Style-Definitions for style
+'JKU LAN simple' by Alexander Woike
+based on 'simple' by Jochen Jung
+*/
+
+$boxMargin: 8px;
+
+@import 'functions';
+@import 'mixins';
+@import 'fonts';
+@import 'colors';
+//@import '';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+pre {
+  font-family: 'Roboto Mono', monospace;
+}
+
+html, body {
+  font-size: 12px;
+  margin: 0;
+  background: $colPrim;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+#Sitewrapper {
+  background: $colSec;
+  padding-bottom: 2em;
+}
+
+#DateLogout {
+  padding: 0.2em 1em;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+#LansuiteFullscreen {
+  font-size: 0.9em;
+  background: $colDark;
+  color: $colSec;
+}
+
+#Mainheader {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  overflow: visible;
+  padding: 0;
+
+  background: $colDark;
+  background: -o-linear-gradient(to bottom, $colDark 0%, $colPrim 75%, $colDark 100%);
+  background: -webkit-linear-gradient(top, $colDark 0%, $colPrim 75%, $colDark 100%);
+  background: linear-gradient(to bottom, $colDark 0%, $colPrim 75%, $colDark 100%);
+}
+
+#Logo {
+  height: 180px;
+  width: auto;
+  float: left;
+  margin: -40px $boxMargin;
+  border: 0 none;
+}
+
+#Pagetitle {
+  float: left;
+  margin: 0 16px;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Roboto';
+  font-size: 5rem;
+  font-weight: lighter;
+  line-height: 100px;
+  color: $colSec;
+  /**/
+}
+
+#Banner {
+  position: absolute;
+  display: table;
+  right: $boxMargin;
+  top: 8px;
+  overflow: hidden;
+  height: 84px;
+
+  a {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  img {
+    max-height: 84px !important;
+    height: 100%;
+  }
+}
+
+#Sitecontent {
+  padding: 2em $boxMargin;
+}
+
+.content-wrapper {
+  margin: auto 196px; /* $boxWidth + $boxMargin */
+  padding: 1em 16px 3em;
+}
+
+#ContentFullscreen {
+  margin: 0px 2px 10px 2px;
+  padding: 8px 4px 10px 8px;
+  background: #eee6e6;
+}
+
+#BoxesLeft {
+  float: left;
+  width: 180px;
+}
+
+#BoxesRight {
+  float: right;
+  width: 180px;
+}
+
+/* Boxes */
+.Box {
+  position: relative;
+  margin-bottom: 1em;
+  padding: 0;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.BoxHeadline {
+  margin: 0;
+  border-bottom: 1px solid $colDark;
+  padding: 4px 4px 4px 8px;
+  background: $colPrim;
+  font-size: 1em;
+  font-weight: bold;
+  list-style: none;
+  white-space: nowrap;
+
+  li, a, a:link, a:visited {
+    color: $colSec;
+    text-shadow: 1px -1px $colDark;
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+
+  }
+  a:hover, a:active {
+    color: $colLinkHL;
+    text-decoration: none;
+  }
+}
+
+.BoxCaption {
+  width: 144px;
+}
+
+.BoxHelpClose a:hover {
+  // color: #ffc857;
+}
+
+ul.BoxContent {
+  padding: 4px 4px 4px 8px;
+  background: $colLight;
+  color: $colSecInv;
+  @include rounded-border(0 0 4px 4px);
+
+  a, a:link, a:visited {
+    color: $colLinkMenu;
+  }
+  a:hover, a:active {
+    color: $colLinkMenuHL;
+  }
+  a.admin {
+    &, &:link, &:visited {
+      color: $colLinkSpec;
+      text-decoration: none;
+    }
+    &:hover, &:active {
+      color: $colLinkSpecHL;
+      text-decoration: underline;
+    }
+  }
+
+}
+
+li.box_entry, li.box_entry_active {
+  margin: 0;
+  padding: 1px 0 2px 16px;
+  background-position: 0 2px;
+}
+
+span.AdminIcons {
+  background-position: 8px 2px;
+}
+
+#Footer {
+  position: relative;
+  min-height: 220px;
+  margin: 0;
+  color: white;
+  text-align: center;
+
+  &:before {
+    content: '';
+    position: relative;
+    top: 0;
+    height: 16px;
+    width: 100%;
+    margin-bottom: 120px;
+    display: block;
+
+    background: rgba(0, 0, 0, 0.3);
+    background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), transparent);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  }
+}
+
+div#tabs {
+  background: #eee6e6;
+}
+
+/* Links */
+a {
+  &, &:link, &:visited {
+    color: $colLink;
+    text-decoration: none;
+  }
+  &:hover, &:active {
+    color: $colLinkHL;
+    text-decoration: underline;
+  }
+
+}
+
+a.menu {
+  &, &:link, &:visited {
+    color: $colLinkMenu;
+  }
+  &:hover, &:active {
+    color: $colLinkMenuHL;
+  }
+}
+
+/* == Main Design ==============================*/
+
+.Headline h1 {
+  font-size: 2.8em;
+  /*font-family: 'Righteous', Sans-Serif;*/
+  font-family: 'Alegreya', serif;
+  font-weight: bold;
+  color: $colBG;
+  text-shadow: 1px -1px 4px $colDarker;
+}
+
+div.HeadlineSub {
+  border-top: 1px solid $colDark;
+  border-bottom: 0 none;
+  padding: 0.3em 0 1em;
+  font-size: 1.1em;
+  color: $colDark;
+
+}
+
+ul.LineFirst, ul.Line {
+  clear: none;
+  height: auto;
+  margin: 0 0 1em;
+  border: 0 none;
+
+  & > li {
+    display: inline-block;
+    float: none;
+    width: 100%;
+    margin: 0;
+    vertical-align: top;
+    padding: 0.2em;
+
+    &.LineLeftHalf, &.LineRightHalf {
+      width: 50%;
+    }
+
+    &.LineLeft {
+      width: 24%;
+    }
+
+    &.LineRight {
+      width: 75%
+    }
+
+    &.Information {
+      background: $colInformation;
+    }
+    &.Confirmation {
+      background: $colConfirmation;
+    }
+    &.Err {
+      background: $colError;
+    }
+  }
+}
+
+.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
+  background: $colPrim;
+  border-bottom: 1px solid $colDark;
+  color: $colBG;
+  text-shadow: 1px -1px $colDark;
+  font-size: 1em;
+  padding: 4px 4px 4px 8px;
+
+}
+
+.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
+  a, a:link, a:visited {
+    color: $colBG;
+    text-decoration: underline;
+
+  }
+  a:hover, a:active {
+    color: $colLinkMenuHL;
+  }
+}
+
+.row_value, .mastersearch2_search_row_value, .mastersearch2_result_row_value, .mastersearch2_search_row_value_highlighted, .mastersearch2_search_row_value_important {
+  background: $colLight;
+  /*font-size: 1em;*/
+}
+
+.ui-helper-clearfix {
+  display: inline-block;
+}
+
+fieldset[style] {
+  clear: none !important;
+  min-height: 3em;
+  border: 1px dotted $colPrim;
+}
+
+input, textarea, select {
+  color: $colSecInv;
+  background: $colSec;
+  border: 1px solid $colPrim;
+  margin: 1px;
+}
+
+.form_optional {
+  color: $colSecInv;
+  background: $colPrimLighter;
+  border: 1px solid $colPrim;
+}
+
+ol.agb {
+  list-style-type: upper-roman;
+
+  h3 {
+  }
+  li {
+
+    ol {
+      list-style-type: decimal;
+      li {
+
+      }
+    }
+  }
+}
+
+.buttonPreset {
+  &, &:link, &:visited {
+    background: $colLight;
+    border: 2px solid $colDarker;
+    @include rounded-border(4px);
+    color: $colDarker;
+  }
+  &:hover, &:active {
+    background: $colAccent3;
+    border-color: $colAccent3Darker;
+    color: $colAccent3Darker;
+  }
+}
+
+div.Button a, div.Buttons a, input.Button {
+  @extend .buttonPreset;
+}
