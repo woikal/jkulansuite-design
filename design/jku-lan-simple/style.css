@@ -103,10 +103,13 @@ html, body {
 #Banner a {
   display: table-cell;
   vertical-align: middle;
+  border: 0 none;
 }
 #Banner img {
   max-height: 84px !important;
   height: 100%;
+  width: auto;
+  border: 0 none;
 }
 
 #Sitecontent {
@@ -171,38 +174,73 @@ html, body {
 }
 
 ul.BoxContent {
-  padding: 4px 4px 4px 8px;
+  padding: 0;
   background: #ccebf0;
   color: black;
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
 }
-ul.BoxContent a, ul.BoxContent a:link, ul.BoxContent a:visited {
-  color: #006d7d;
+
+li.box_entry, li.box_entry_active, li.box_entry_lvl_1, li.box_entry_lvl_1_active, span.AdminIcons {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
 }
-ul.BoxContent a:hover, ul.BoxContent a:active {
-  color: #ffae00;
-}
-ul.BoxContent a.admin, ul.BoxContent a.admin:link, ul.BoxContent a.admin:visited {
-  color: #cc0f00;
+li.box_entry a, li.box_entry a:link, li.box_entry a:visited, li.box_entry a:hover, li.box_entry a:active, li.box_entry_active a, li.box_entry_active a:link, li.box_entry_active a:visited, li.box_entry_active a:hover, li.box_entry_active a:active, li.box_entry_lvl_1 a, li.box_entry_lvl_1 a:link, li.box_entry_lvl_1 a:visited, li.box_entry_lvl_1 a:hover, li.box_entry_lvl_1 a:active, li.box_entry_lvl_1_active a, li.box_entry_lvl_1_active a:link, li.box_entry_lvl_1_active a:visited, li.box_entry_lvl_1_active a:hover, li.box_entry_lvl_1_active a:active, span.AdminIcons a, span.AdminIcons a:link, span.AdminIcons a:visited, span.AdminIcons a:hover, span.AdminIcons a:active {
+  display: inline-block;
+  width: 100%;
+  padding: 0.3em 1.4em;
   text-decoration: none;
 }
-ul.BoxContent a.admin:hover, ul.BoxContent a.admin:active {
-  color: #ffae00;
-  text-decoration: underline;
+li.box_entry:hover, li.box_entry_active:hover, li.box_entry_lvl_1:hover, li.box_entry_lvl_1_active:hover, span.AdminIcons:hover {
+  background: #ffae00;
+}
+li.box_entry:hover a, li.box_entry:hover a:link, li.box_entry:hover a:visited, li.box_entry:hover a:hover, li.box_entry:hover a:active, li.box_entry_active:hover a, li.box_entry_active:hover a:link, li.box_entry_active:hover a:visited, li.box_entry_active:hover a:hover, li.box_entry_active:hover a:active, li.box_entry_lvl_1:hover a, li.box_entry_lvl_1:hover a:link, li.box_entry_lvl_1:hover a:visited, li.box_entry_lvl_1:hover a:hover, li.box_entry_lvl_1:hover a:active, li.box_entry_lvl_1_active:hover a, li.box_entry_lvl_1_active:hover a:link, li.box_entry_lvl_1_active:hover a:visited, li.box_entry_lvl_1_active:hover a:hover, li.box_entry_lvl_1_active:hover a:active, span.AdminIcons:hover a, span.AdminIcons:hover a:link, span.AdminIcons:hover a:visited, span.AdminIcons:hover a:hover, span.AdminIcons:hover a:active {
+  color: #6f4c00;
 }
 
-li.box_entry, li.box_entry_active {
-  margin: 0;
-  padding: 1px 0 2px 16px;
-  background-position: 0 2px;
+li.box_entry_lvl_1 a, li.box_entry_lvl_1 a:link, li.box_entry_lvl_1 a:visited, li.box_entry_lvl_1 a:hover, li.box_entry_lvl_1 a:active, li.box_entry_lvl_1_active a, li.box_entry_lvl_1_active a:link, li.box_entry_lvl_1_active a:visited, li.box_entry_lvl_1_active a:hover, li.box_entry_lvl_1_active a:active, span.AdminIcons a, span.AdminIcons a:link, span.AdminIcons a:visited, span.AdminIcons a:hover, span.AdminIcons a:active {
+  padding-left: 2.8em;
 }
 
-span.AdminIcons {
-  background-position: 8px 2px;
+a.admin, a.admin:link, a.admin:visited, a.admin:hover, a.admin:active {
+  color: #ff1300;
 }
 
+li.box_entry_active a, li.box_entry_active a:link, li.box_entry_active a:visited, li.box_entry_active a:hover, li.box_entry_active a:active, li.box_entry_lvl_1_active a, li.box_entry_lvl_1_active a:link, li.box_entry_lvl_1_active a:visited, li.box_entry_lvl_1_active a:hover, li.box_entry_lvl_1_active a:active {
+  color: white;
+  text-shadow: 0 0 6px #003c44;
+}
+li.box_entry_active a.admin, li.box_entry_active a.admin:link, li.box_entry_active a.admin:visited, li.box_entry_active a.admin:hover, li.box_entry_active a.admin:active, li.box_entry_lvl_1_active a.admin, li.box_entry_lvl_1_active a.admin:link, li.box_entry_lvl_1_active a.admin:visited, li.box_entry_lvl_1_active a.admin:hover, li.box_entry_lvl_1_active a.admin:active {
+  color: white;
+  text-shadow: 0 0 6px #6f0800;
+}
+
+a:hover span.infobox {
+  top: 20px;
+  left: 1em;
+  width: 100%;
+  background: white;
+  border: 1px solid #006d7d;
+  -webkit-border-radius: 0 3px 3px 3px;
+  -moz-border-radius: 0 3px 3px 3px;
+  border-radius: 0 3px 3px 3px;
+  color: #006d7d;
+}
+a:hover span.infobox:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-width: 0 10px 10px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: white;
+}
+
+/* -- Site Footer -- */
 #Footer {
   position: relative;
   min-height: 220px;
@@ -236,13 +274,6 @@ a, a:link, a:visited {
 a:hover, a:active {
   color: #ffae00;
   text-decoration: underline;
-}
-
-a.menu, a.menu:link, a.menu:visited {
-  color: #006d7d;
-}
-a.menu:hover, a.menu:active {
-  color: #ffae00;
 }
 
 /* == Main Design ==============================*/
@@ -288,12 +319,15 @@ ul.LineFirst > li.LineRight, ul.Line > li.LineRight {
 }
 ul.LineFirst > li.Information, ul.Line > li.Information {
   background: #ffc857;
+  padding: 1em;
 }
 ul.LineFirst > li.Confirmation, ul.Line > li.Confirmation {
   background: #99c24d;
+  padding: 1em;
 }
 ul.LineFirst > li.Err, ul.Line > li.Err {
   background: #c24e5b;
+  padding: 1em;
 }
 
 .row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
@@ -342,10 +376,24 @@ input, textarea, select {
 }
 
 ol.agb {
+  margin: 0;
+  padding: 0;
   list-style-type: upper-roman;
+  font-weight: bold;
+  text-align: justify;
 }
-ol.agb li ol {
+ol.agb > li {
+  margin: 0 0 1.4em;
+}
+ol.agb > li > ol {
+  margin: 1em 0;
+  padding-left: 1em;
+  font-weight: normal;
   list-style-type: decimal;
+}
+ol.agb > li > ol > li {
+  margin: 0 0 1em 0;
+  text-indent: 1.4em;
 }
 
 .buttonPreset, div.Button a, div.Buttons a, input.Button, .buttonPreset:link, div.Button a:link, div.Buttons a:link, input.Button:link, .buttonPreset:visited, div.Button a:visited, div.Buttons a:visited, input.Button:visited {
