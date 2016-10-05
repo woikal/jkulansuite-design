@@ -45,8 +45,13 @@ class framework {
         $this->timer2 = explode(' ', microtime());
 
         if (isset($_SERVER['REQUEST_URI'])) {
-          if ($_SERVER['HTTPS']) $url = 'https://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-          else $url = 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+          $config = parse_ini_file('inc/base/config.php', 1);
+          if (isset($config['lansuite']['base_url'])) {
+            $url = $config['lansuite']['base_url'] . $_SERVER['REQUEST_URI'];
+          } else {
+            if ($_SERVER['HTTPS']) $url = 'https://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+            else $url = 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+          }
           if ($CurentURL = parse_url($url)) {
             $this->internal_url_query['base'] = $CurentURL['path'].'?'.$CurentURL['query']; // Enspricht alter $CurentURLBase;
             $this->internal_url_query['query'] = preg_replace('/[&]?fullscreen=(no|yes)/sUi', '', $CurentURL['query']); // Enspricht alter $URLQuery;
