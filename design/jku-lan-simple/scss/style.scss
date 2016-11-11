@@ -419,6 +419,10 @@ ul.LineFirst, ul.Line {
   /*font-size: 1em;*/
 }
 
+p { /* highly risky ... */
+  padding: 0.2em 1em;
+}
+
 .ui-helper-clearfix {
   display: inline-block;
 }
