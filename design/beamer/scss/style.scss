@@ -1,0 +1,260 @@
+/*
+Lansuite Style-Definitions for style
+'JKU LAN simple' by Alexander Woike
+based on 'simple' by Jochen Jung
+*/
+
+$boxMargin: 8px;
+
+@import 'functions';
+@import 'mixins';
+@import 'fonts';
+@import 'colors';
+//@import '';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+pre {
+  font-family: 'Roboto Mono', monospace;
+}
+
+html, body {
+  font-size: 12px;
+  margin: 0;
+  background: $colLightest;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.beamerIframe {
+  height: auto;
+  width: 100%;
+}
+
+/*
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 900px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+#Sitewrapper {
+  background: $colLightest;
+  padding-bottom: 2em;
+}
+
+#DateLogout {
+  padding: 0.2em 1em;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+#LansuiteFullscreen {
+  font-size: 0.9em;
+  background: $colDark;
+
+  a {
+    color: $colLightest
+  }
+}
+*/
+#Mainheader {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  padding: 0;
+
+  background: $colDark;
+  @include linear-gradient(to bottom, $colDark 0%, $colPrim 75%, $colDark 100%);
+}
+
+#Logo {
+  height: 180px;
+  width: auto;
+  float: left;
+  margin: -40px $boxMargin;
+  border: 0 none;
+}
+
+#Emblem {
+  height: 180px;
+  width: auto;
+  float: right;
+  margin: -40px $boxMargin;
+  border: 0 none;
+}
+
+#Pagetitle {
+  float: left;
+  margin: 0 16px;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 5rem;
+  font-weight: lighter;
+  line-height: 100px;
+  color: $colLightest;
+
+}
+
+/*
+#Banner {
+  position: absolute;
+  display: table;
+  right: $boxMargin;
+  top: 8px;
+  overflow: hidden;
+  height: 84px;
+
+  a {
+    display: table-cell;
+    vertical-align: middle;
+    border: 0 none;
+  }
+  img {
+    max-height: 84px !important;
+    height: 100%;
+    width: auto;
+    border: 0 none;
+  }
+}
+
+*/
+
+#ContentFullscreen {
+  margin: 0; //TODO
+  padding: 0;
+  background: $colLightest;
+
+  /* == Main Design == */
+  iframe {
+    border: 0 none;
+    overflow: hidden !important;
+    height: 700px;
+  }
+  .Headline h1 {
+    font-size: 2.8em;
+    //font-family: 'Alegreya', serif;
+    font-weight: bold;
+    color: $colLightest;
+    text-shadow: -1px 1px 3px rgba($colDark, 1);
+  }
+
+  div.HeadlineSub {
+    border: 0 none;
+    border-top: 1px solid $colPrim;
+    padding: 0.3em 0 1em;
+    font-size: 1.1em;
+    color: $colPrim;
+  }
+
+  ul.LineFirst, ul.Line {
+    clear: none;
+    height: auto;
+    margin: 0;
+    border: 0 none;
+    padding: 0;
+
+    & > li {
+      display: inline-block;
+      float: none;
+      width: 100%;
+      margin: 0;
+      vertical-align: top;
+      padding: 0.2em;
+
+      &.LineLeftHalf, &.LineRightHalf {
+        width: 50%;
+      }
+
+      &.LineLeft {
+        width: 24%;
+      }
+
+      &.LineRight {
+        width: 75%
+      }
+
+      &.LineLeftBoard {
+        width: 14%;
+        // margin: 0px 0px 0px 0px;
+        // padding: 4px 1% 4px 1%;
+        // float: left;
+      }
+
+      &.LineRightBoard {
+        width: 80%;
+        // margin: 0px 0px 0px 0px;
+        // padding: 4px 1% 4px 1%;
+      }
+      &.Information {
+        background: $colInformation;
+        padding: 1em;
+      }
+      &.Confirmation {
+        background: $colConfirmation;
+        padding: 1em;
+      }
+      &.Err {
+        background: $colError;
+        padding: 1em;
+      }
+    }
+  }
+}
+
+/* -- Beamer Footer -- */
+#Sponsors {
+  position: absolute;
+  bottom: 0;
+  min-height: 114px;
+  width: 100%;
+  margin: 0;
+  background: $colPrim;
+  color: $colLightest;
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: block;
+    position: relative;
+    top: 0;
+    height: 16px;
+    width: 100%;
+    margin: 0;
+
+    background: rgba(0, 0, 0, 0.3);
+    @include linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  }
+  p {
+    margin: 0 0 0.1em;
+    padding: 0;
+  }
+
+  a {
+    color: $colLightest;
+  }
+
+  img {
+    height: 72px; // img height overrule
+    width: auto;
+    border: 0 none;
+  }
+}

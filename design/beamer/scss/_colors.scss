@@ -1,0 +1,46 @@
+// color definitions
+
+// Base colorstext-decoration: none;
+
+$colLightest: white;
+$colLighter: rgb(218, 249, 254);
+$colLight: rgb(204, 235, 240);
+$colPrim: rgb(0, 156, 179);
+$colDark: rgb(0, 109, 125);
+$colDarker: rgb(0, 60, 68);
+$colDarkest: black;
+
+$colAccent1: rgb(255, 19, 0);
+$colAccent1Dark: rgb(204, 15, 0);
+$colAccent1Darker: rgb(111, 8, 0);
+
+$colAccent2Lighter: rgb(255, 173, 102);
+$colAccent2: rgb(255, 122, 0);
+$colAccent2Dark: rgb(204, 98, 0);
+$colAccent2Darker: rgb(111, 83, 0);
+
+$colAccent3: rgb(255, 174, 0);
+$colAccent3Dark: rgb(204, 140, 0);
+$colAccent3Darker: rgb(111, 76, 0);
+
+
+$colPrimLight: mix($colPrim, $colLightest, 20);
+$colPrimLighter: mix($colPrim, $colLightest, 20);
+
+$colConfirmation: rgb(153, 194, 77); // green-ish
+$colInformation: rgb(255, 200, 87); //yellow-ish
+$colError: rgb(194, 78, 91); //red-ish
+
+$colText: $colDarker;
+$colTextHL: $colAccent2Dark;
+
+$colLink: $colPrim;
+$colLinkHL: $colAccent3;
+$colLinkMenu: $colDark;
+$colLinkMenuHL: $colAccent3;
+$colLinkSpec: $colAccent1Dark;
+$colLinkSpecHL: $colAccent3;
+
+// Vorgaben Styleguide:
+// Akzent 1:  rgb(49, 76, 182) blue
+// Akzent 2: rgb(255, 200, 87) yellow

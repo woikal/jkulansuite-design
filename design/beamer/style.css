@@ -1,431 +1,245 @@
 /*
-Lansuite Style-Definitions
-
-For detailed Information see:
-http://lansuite-docu.orgapage.de/index.php?title=Stylesheets
-
-Format:
-name {
-  Positioning, Width, Height
-  Margin, Border, Padding
-  Float, Clear, Allign, White-space
-  Colors, Background, Backgroundimages
-  Font-size, -weight and -family
-}
+Lansuite Style-Definitions for style
+'JKU LAN simple' by Alexander Woike
+based on 'simple' by Jochen Jung
 */
-
-/* Main-Template */
-body {
-  margin: 0px 0px 0px 0px;    padding: 0px 0px 0px 0px;
-  text-align: left;
-  background: #ffffff;    color: #000000;
-  font-size: 11px;    font-weight: normal;   font-family: verdana, helvetica, sans-serif;
-}
-td {
-  font-size: 11px;
-}
-div#DateLogout {
-  position: absolute;   top: 2px;   right: 4px;   width: 300px;   height: 20px;   z-index: 90;
-  text-align: right;
-  font-size: 11px;
-}
-div#Logo {
-  position: absolute;   top: 1200px;    left: 10px;   z-index: 10;
-}
-div#Banner {
-  position: absolute;   top: 20px;    right: 4px;   z-index: 5;
-  color: red;
-  font-size:22px;
-}
-div#BoxesLeft {
-  position: absolute;   top: 100px;   left: 4px;    width: 180px;   z-index: 50;
-}
-div#Content {
-  position: absolute;   top: 100px;   right: 190px;   left: 190px;    z-index: 100;
-  margin: 0px 2px 10px 2px;   padding: 8px 4px 10px 8px;
-  background: #eee6e6;
-}
-div#ContentFullscreen {
-  position: absolute;   top: 0px;    right: 10px;    left: 10px;   z-index: 10;
-  margin: 0px 2px 10px 2px;   padding: 8px 4px 10px 8px;
-  background: #eee6e6;
-}
-div#BoxesRight {
-  position: absolute;   top: 100px;   right: 4px;   width: 180px;   z-index: 50;
-}
-div#Footer {
-  position: relative;   width: 100%;    z-index: 20;
-  margin: 8px 0px 0px 0px;
-  text-align: center;
+@import "https://fonts.googleapis.com/css?family=Roboto:100,300,400";
+@import "https://fonts.googleapis.com/css?family=Roboto+Condensed";
+@import "https://fonts.googleapis.com/css?family=Roboto+Mono";
+@import "https://fonts.googleapis.com/css?family=Alegreya:700";
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Boxes */
-div.Box {
-  position: relative;
-  margin: 0px 4px 8px 4px;    padding: 0px 0px 0px 0px;
-}
-ul.BoxHeadline {
-  margin: 0px 0px 0px 0px;    border-bottom:1px solid #9c9d9c;    padding: 4px 4px 4px 8px;
-  background: #eee6e6;
-  font-weight: bold;    list-style: none;
-}
-li.BoxCaption {
-  width: 136px;
-  float: left;
-  background: #eee6e6;
-  font-weight: bold;    list-style: none;
-}
-li.BoxHelpClose {
-  width: 18px;
-  font-size: 10px;   list-style: none;
-}
-ul.BoxContent {
-  margin: 0px 0px 0px 0px;    padding: 4px 4px 4px 8px;
-  background: #dee2e6;
-  list-style: none;
-}
-li.engaged {
-  padding: 0px 0px 0px 16px;
-}
-.box_entry {
-  padding: 0px 0px 2px 16px;
-  background-image: url(images/arrows_menurow.gif);   background-repeat: no-repeat;
-}
-.box_entry_active {
-  padding: 0px 0px 2px 16px;
-	background-image: url(images/arrows_menurow_close.gif);    background-repeat: no-repeat;
-}
-.box_entrymessage {
-  padding: 0px 0px 2px 16px;
-	background-image: url(images/arrows_message.gif);    background-repeat: no-repeat;
-}
-.box_entrymessage_blink {
-  padding: 0px 0px 2px 16px;
-	background-image: url(images/arrows_message_blink.gif);    background-repeat: no-repeat;
-}
-.box_entrydata {
-  padding: 0px 0px 2px 16px;
-	background-image: url(images/arrows_data.gif);    background-repeat: no-repeat;
-}
-/* ---- Teamspeak2 Display BEGINN ----*/
-#teamspeakdisplay img {
-  border: 0px;
-}
-#teamspeakdisplay table {
-  border-collapse: collapse;  border-spacing: 0px;
-}
-#teamspeakdisplay td {
-  padding: 0px;
-  vertical-align: top;  white-space: nowrap;
-  font-size: 11px;  font-family: verdana, helvetica, sans-serif;
-}
-#teamspeakdisplay td.teamspeakserver {
-  padding-left: 3px;
-  font-weight: bold;
-}
-#teamspeakdisplay td.teamspeakchannel {
-  padding-left: 3px;
-}
-#teamspeakdisplay td.teamspeaksubchannel {
-  padding-left: 3px;
-}
-#teamspeakdisplay td.teamspeakplayer {
-	padding-left: 3px;
-	font-weight: bold;
-}
-#teamspeakdisplay a.teamspeakserver {
-  font-size: 11px;  font-weight: bold;  font-family: verdana, helvetica, sans-serif;
-  text-decoration: none;
-  color: #000000;
-}
-#teamspeakdisplay a.teamspeakchannel, a.teamspeaksubchannel {
-  font-size: 11px;  font-weight: ;  font-family: verdana, helvetica, sans-serif;
-  text-decoration: none;
-  color: #000000;
-}
-#teamspeakdisplay a.teamspeakserver:hover, a.teamspeakchannel:hover, a.teamspeaksubchannel:hover {
-  color: #000066;
-  text-decoration: none;
-}
-/* ---- Teamspeak2 Display ENDE ----*/
-/* Content */
-.content {
-  padding: 0px 0px 0px 0px;
-  background:		#DEE3E7;
-}
-ul.Line {
-  position: relative;   height: 100%;
-  margin: 0px 0px 0px 0px;    border-top: 1px solid #9c9d9c;    padding: 0px 0px 2px 0px;
-  clear: left;
-  background: #eee6e6;
-}
-ul.LineFirst {
-  position: relative;   height: 100%;
-  margin: 0px 0px 0px 0px;    padding: 0px 0px 2px 0px;
-  clear: left;
-  background: #eee6e6;
-}
-li.LineLeft {
-  width: 180px;   min-height: 16px;   z-index: 10;
-  margin: 0px 0px 0px 0px;    padding: 4px 4px 4px 4px;
-  float: left;
-  list-style: none;
-}
-li.LineLeftBoard {
-  width: 120px;   min-height: 16px;   z-index: 10;
-  margin: 0px 0px 0px 0px;    padding: 4px 4px 4px 4px;
-  float: left;
-  list-style: none;
-}
-li.LineLeftHalf {
-  width: 50%;   min-height: 16px;   z-index: 10;
-  margin: 0px 0px 0px 0px;    padding: 4px 4px 4px 4px;
-  float: left;
-  list-style: none;
-}
-li.LineRight {
-  min-height: 16px;   z-index: 11;
-  margin: 0px 0px 0px 0px;    padding: 4px 4px 4px 4px;
-  background: #eeeeee;
-  list-style: none;
-}
-li.Confirmation {
-  padding: 4px 2px 0px 2px;
-	background: #00ff00;
-  list-style: none;
-}
-li.Err {
-  margin: 8px 2px 8px 2px;   padding: 8px 4px 10px 8px;
-	background: #f33737;
-  list-style: none;
-}
-li.Information {
-  margin: 8px 2px 8px 2px;   padding: 8px 4px 10px 8px;
-	background: #f8ae38;
-  list-style: none;
-}
-li.Confirmation {
-  margin: 8px 2px 8px 2px;   padding: 8px 4px 10px 8px;
-	background: #84cd82;
-  list-style: none;
-}
-h1 {
-  position: relative;
-  font-weight: bold;
-}
-div.HeadlineSub {
-}
-div.HeadlineHelp {
-  position: absolute;   top: 0px;   right: 8px;
-  font-size: 10px;
-}
-.login {
-	background: #dee2e6;
-  font-size: 11px;
-  text-align: left;
-}
-.row_key {
-  height: 100%;
-  border-bottom: 1px solid #9c9d9c;   padding: 4px 2px 0px 2px;
-	background: #E8E7E7;
-  font-weight: bold;
-  font-size: 11px;
-  text-align: left;
-}
-.row_value {
-  height: 100%;
-  border-bottom: 1px solid #9c9d9c;   padding: 4px 2px 0px 2px;
-	background: #EFEFEF;
-  font-size: 11px;
-}
-.row_value_highlighted {
-  height: 100%;
-  border-bottom: 1px solid #9c9d9c;   padding: 4px 2px 0px 2px;
-	background:		#E2F2E2;
-  font-size: 11px;
-}
-.row_value_important {
-  height: 100%;
-  border-bottom: 1px solid #9c9d9c;   padding: 4px 2px 0px 2px;
-	background: #EEE6BD;
-  font-size: 11px;
-}
-div.Button {
-  margin: 0px 0px 0px 0px;    padding: 0px 0px 0px 0px;
+pre {
+  font-family: 'Roboto Mono', monospace;
 }
 
-div.Button a {
-  width: 140px;
-  margin: 2px 0px 2px 0px;    padding: 2px 6px 2px 6px;
-  text-align: center;
-	background: #bbbbbb;
-  font-weight: bold;
-  display: block;
-}
-div.Button a:hover {
-  width: 140px;
-  margin: 2px 0px 2px 0px;    padding: 2px 6px 2px 6px;
-  text-align: center;
-	background: #999999;	color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-  display: block;
-}
-div.Buttons a {
-  width: 125px;  height: 100%;
-  margin: 2px 2px 2px 0px;   border: 2px solid #6882b9;   padding: 1px;
-  float: left;
-  background: #D7E5F2;   color: #102132;
-  font-size: 11px;  font-family: verdana, helvetica, sans-serif;
-  text-align: center;
-}
-div.Buttons a:hover {
-  width: 125px;  height: 100%;
-  margin: 2px 2px 2px 0px;   border: 2px solid #6882b9;   padding: 1px;
-  float: left;
-  background: #284279;   color: #ffffff;
-  font-size: 11px;  font-family: verdana, helvetica, sans-serif;
-  text-align: center;
-  text-decoration: none;
-}
-input.Button {
-  width: 125px;  height: 100%;
-  margin: 2px 0px 2px 0px;   border: 2px solid #6882b9;   padding: 0px 2px 0px 2px;
-  background: #D7E5F2;   color: #102132;
-  font-size: 11px;  font-family: verdana, helvetica, sans-serif;
-}
-input.Button:hover {
-  width: 125px;  height: 100%;
-  margin: 2px 0px 2px 0px;   border: 2px solid #6882b9;   padding: 0px 2px 0px 2px;
-  background: #284279;   color: #ffffff;
-  font-size: 11px;  font-family: verdana, helvetica, sans-serif;
-  text-decoration: none;
+html, body {
+  font-size: 12px;
+  margin: 0;
+  background: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.Help {
-  color: #aaaaaa;
-}
-.AdminIcons {
-  padding: 0px 0px 2px 16px;
-  background-image: url(images/arrows_data.gif);   background-repeat: no-repeat;
-  font-size: 10px;
-}
-.form_optional { /* used for optional form fields */
-  background: rgb(191,255,255);
-}
-.tbl_7 { /* used for quotes */
-  text-align: left;
-  background: #C7C6C4;    color: #000000;
-  font-family: Courier New, Courier, mono;
-}
-.frame_box { /* used for seating descriptions */
-	border: 1px solid #9D9D9D;   padding: 4px 4px 4px 4px;
-	text-align: center;   vertical-align: middle;
-	background: #D6D6D6;
-}
-.small {
-  font-size: 10px;
+*,
+::before,
+::after {
+  box-sizing: inherit;
 }
 
-/* Forms */
+.beamerIframe {
+  height: auto;
+  width: 100%;
+}
 
-fieldset {
-  margin: 0px 0px 0px 0px;   padding: 0px 0px 0px 0px;
-}
-label {
-  margin: 0px 0px 0px 0px;   padding: 0px 0px 0px 0px;
-}
-input {
-  margin: 0px 0px 0px 0px;   border: 1px solid #284279;   padding: 1px 0px 1px 0px;
-  background: #D7E5F2;   color: #102132;
-  font-size: 11px;    font-weight: normal;   font-family: verdana, helvetica, sans-serif;
-}
-input.checkbox {
-  margin: 0px 4px 0px 0px;   border: 0px 0px 0px 0px;   padding: 0px 0px 0px 0px;
-  background: #eeeeee;   color: #eeeeee;
-}
 /*
-input[type=text] {
+.wrapper {
+  position: relative;
   width: 100%;
+  min-width: 900px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.clearfix {
+  float: none;
+  clear: both;
+}
+
+#Sitewrapper {
+  background: $colLightest;
+  padding-bottom: 2em;
+}
+
+#DateLogout {
+  padding: 0.2em 1em;
+  text-align: right;
+  font-size: 0.9em;
+}
+
+#LansuiteFullscreen {
+  font-size: 0.9em;
+  background: $colDark;
+
+  a {
+    color: $colLightest
+  }
 }
 */
-select {
-  margin: 0px 0px 0px 0px;   border: 1px solid #284279;   padding: 0px 0px 0px 0px;
-  background: #D7E5F2;   color: #102132;
-  font-size: 11px;
-}
-textarea {
+#Mainheader {
+  position: relative;
+  top: 0;
   width: 100%;
-  margin: 0px 0px 0px 0px;   border: 1px solid #284279;   padding: 0px 0px 0px 0px;
-  background: #D7E5F2;   color: #102132;
-}
-/* Dropdown Images */
-option[value=de]:before { content:url("../images/icon_de.png"); }
-option[value=en]:before { content:url("../images/icon_en.png"); }
-option[value=at]:before { content:url("../images/icon_at.png"); }
-option[value=ch]:before { content:url("../images/icon_ch.png"); }
-option[value=es]:before { content:url("../images/icon_es.png"); }
-option[value=fr]:before { content:url("../images/icon_fr.png"); }
-option[value=nl]:before { content:url("../images/icon_nl.png"); }
-option[value=it]:before { content:url("../images/icon_it.png"); }
-
-
-/* Message-Highlighting */
-.error {
-	text-align: left;
-	color: #FF0000;
-	font-weight: bold;
-}
-.warning {
-	text-align: left;
-	color: #EE6600;
-	font-weight: bold;
-}
-.okay {
-	text-align: left;
-	color: #008000;
-	font-weight: bold;
+  height: 100px;
+  overflow: hidden;
+  padding: 0;
+  background: #006d7d;
+  background: #006d7d;
+  /* Color fallback */
+  background: -o-linear-gradient(to bottom, #006d7d 0%, #009cb3 75%, #006d7d 100%);
+  /* For Opera 11.1 to 12.0 */
+  background: -webkit-linear-gradient(top, #006d7d 0%, #009cb3 75%, #006d7d 100%);
+  background: linear-gradient(to bottom, #006d7d 0%, #009cb3 75%, #006d7d 100%);
 }
 
-/* Bars*/
-ul.BarOccupied {
-  position: static;   height: 12px;
-  margin: 0px 0px 0px 0px;        padding: 0px 0px 0px 0px;
+#Logo {
+  height: 180px;
+  width: auto;
   float: left;
-	background: #2bb800;
-}
-ul.BarMarked {
-  position: static;   height: 12px;
-  margin: 0px 0px 0px 0px;    border: 2px 0px 2px 0px solid #9c9d9c;    padding: 0px 0px 0px 0px;
-  float: left;
-	background: #fff500;
-}
-ul.BarFree {
-  position: static;   height: 12px;
-  margin: 0px 0px 0px 0px;    padding: 0px 0px 0px 0px;
-  float: left;
-	background: #b0b0b0;
-}
-ul.BarClear {
-  position: static;   width: 0px;   height: 0px;
-  margin: 0px 0px 0px 0px;    padding: 0px 0px 0px 0px;
-  clear: left;
+  margin: -40px 8px;
+  border: 0 none;
 }
 
-/* Links */
-a:link, a:visited {
-	color: #000000;
-	text-decoration:none;
+#Emblem {
+  height: 180px;
+  width: auto;
+  float: right;
+  margin: -40px 8px;
+  border: 0 none;
 }
-a:hover {
-	color: #888888;
-	text-decoration:underline;
+
+#Pagetitle {
+  float: left;
+  margin: 0 16px;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 5rem;
+  font-weight: lighter;
+  line-height: 100px;
+  color: white;
 }
-a.admin:link, a.admin:visited {
-	color: #ff0000;
-	text-decoration:none;
+
+/*
+#Banner {
+  position: absolute;
+  display: table;
+  right: $boxMargin;
+  top: 8px;
+  overflow: hidden;
+  height: 84px;
+
+  a {
+    display: table-cell;
+    vertical-align: middle;
+    border: 0 none;
+  }
+  img {
+    max-height: 84px !important;
+    height: 100%;
+    width: auto;
+    border: 0 none;
+  }
 }
-a.admin:hover {
-	color: #ff0000;
-	text-decoration:underline;
+
+*/
+#ContentFullscreen {
+  margin: 0;
+  padding: 0;
+  background: white;
+  /* == Main Design == */
 }
+#ContentFullscreen iframe {
+  border: 0 none;
+  overflow: hidden !important;
+  height: 700px;
+}
+#ContentFullscreen .Headline h1 {
+  font-size: 2.8em;
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px 1px 3px #006d7d;
+}
+#ContentFullscreen div.HeadlineSub {
+  border: 0 none;
+  border-top: 1px solid #009cb3;
+  padding: 0.3em 0 1em;
+  font-size: 1.1em;
+  color: #009cb3;
+}
+#ContentFullscreen ul.LineFirst, #ContentFullscreen ul.Line {
+  clear: none;
+  height: auto;
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+}
+#ContentFullscreen ul.LineFirst > li, #ContentFullscreen ul.Line > li {
+  display: inline-block;
+  float: none;
+  width: 100%;
+  margin: 0;
+  vertical-align: top;
+  padding: 0.2em;
+}
+#ContentFullscreen ul.LineFirst > li.LineLeftHalf, #ContentFullscreen ul.LineFirst > li.LineRightHalf, #ContentFullscreen ul.Line > li.LineLeftHalf, #ContentFullscreen ul.Line > li.LineRightHalf {
+  width: 50%;
+}
+#ContentFullscreen ul.LineFirst > li.LineLeft, #ContentFullscreen ul.Line > li.LineLeft {
+  width: 24%;
+}
+#ContentFullscreen ul.LineFirst > li.LineRight, #ContentFullscreen ul.Line > li.LineRight {
+  width: 75%;
+}
+#ContentFullscreen ul.LineFirst > li.LineLeftBoard, #ContentFullscreen ul.Line > li.LineLeftBoard {
+  width: 14%;
+}
+#ContentFullscreen ul.LineFirst > li.LineRightBoard, #ContentFullscreen ul.Line > li.LineRightBoard {
+  width: 80%;
+}
+#ContentFullscreen ul.LineFirst > li.Information, #ContentFullscreen ul.Line > li.Information {
+  background: #ffc857;
+  padding: 1em;
+}
+#ContentFullscreen ul.LineFirst > li.Confirmation, #ContentFullscreen ul.Line > li.Confirmation {
+  background: #99c24d;
+  padding: 1em;
+}
+#ContentFullscreen ul.LineFirst > li.Err, #ContentFullscreen ul.Line > li.Err {
+  background: #c24e5b;
+  padding: 1em;
+}
+
+/* -- Beamer Footer -- */
+#Sponsors {
+  position: absolute;
+  bottom: 0;
+  min-height: 114px;
+  width: 100%;
+  margin: 0;
+  background: #009cb3;
+  color: white;
+  text-align: center;
+}
+#Sponsors:before {
+  content: '';
+  display: block;
+  position: relative;
+  top: 0;
+  height: 16px;
+  width: 100%;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  /* Color fallback */
+  background: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+  /* For Opera 11.1 to 12.0 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), transparent);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+#Sponsors p {
+  margin: 0 0 0.1em;
+  padding: 0;
+}
+#Sponsors a {
+  color: white;
+}
+#Sponsors img {
+  height: 72px;
+  width: auto;
+  border: 0 none;
+}
+
+/*# sourceMappingURL=style.css.map */

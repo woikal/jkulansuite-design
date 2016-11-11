@@ -25,10 +25,10 @@ class beamer_display {
 
 	function viewCurrentContent() {
 	global $dsp, $lang, $beamermodul, $bcid, $beamerid, $func;		
-		$dsp->NewContent( "","");
+		//$dsp->NewContent( "","");
 		//$dsp->AddIFrame("localhost/pma/","1024","500");
 		$dsp->AddSingleRow( $func->AllowHTML($beamermodul->getCurrentContent( $beamerid )) );
-		$dsp->AddSingleRow( HTML_NEWLINE."");	
+		// $dsp->AddSingleRow( HTML_NEWLINE."");
 		$dsp->AddContent();
 	}
 

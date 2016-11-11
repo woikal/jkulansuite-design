@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
 <head>
     <title>{$MainTitle}</title>
-    <meta name="google-site-verification" content="C1VMZ8axQnkXsdhL43XMlrpn58idap9wZR1LxKQ6JyM" />
+    <meta name="google-site-verification" content="C1VMZ8axQnkXsdhL43XMlrpn58idap9wZR1LxKQ6JyM"/>
     {$main_header_metatags}
     <meta name="robots" content="index, follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -26,9 +26,17 @@
     <link rel="alternate" type="application/rss+xml" title="RDF-Datei" href="ext_inc/newsfeed/news.xml"/>
     <!--[if lte IE 6]>
     <style type="text/css">
-        {literal}
-        div#Content {width: 70%;}
-        {/literal}
+        {
+            literal
+        }
+        div#Content {
+            width: 70%;
+        }
+
+        {
+        /
+        literal
+        }
     </style>
     <![endif]-->
 </head>
@@ -38,17 +46,17 @@
 <a name="top"></a>
 <span id="LSloading" class="loading"></span>
 <div id="Sitewrapper">
-    {if $MainContentStyleID == 'ContentFullscreen'}
-    <div id="LansuiteFullscreen">{$CloseFullscreen}</div>
-    {elseif $DisplayMode != 'popup' && $DisplayMode != 'print'}
+    {if $MainContentStyleID != 'ContentFullscreen' && $DisplayMode != 'popup' && $DisplayMode != 'print'}
     <div id="DateLogout" class="wrapper">
         {$smarty.now|date_format:"%d.%m.%Y"}{if $MainLogout} | {$MainLogout}{/if}
     </div>
+
     <header id="Mainheader">
         <div class="wrapper">
             <img id="Logo" src="design/jku-lan-simple/images/jku-lan_logo.png" alt="JKU LAN Logo" title="JKU LAN"/>
             <h1 id="Pagetitle">JKU LAN</h1>
-            <img id="Emblem" src="design/jku-lan-simple/images/oeh-informatik_emblem.png" alt="JKU LAN Logo" alt="ÖH JKU StV Informatik Emblem" title="StV Informatik"/>
+            <img id="Emblem" src="design/jku-lan-simple/images/oeh-informatik_emblem.png" alt="JKU LAN Logo"
+                 alt="ÖH JKU StV Informatik Emblem" title="StV Informatik"/>
 
             <div class="clearfix"></div>
         </div>
@@ -71,12 +79,14 @@
 </div>
 
 </div>
-
+{if $MainContentStyleID == 'ContentFullscreen'}
+<footer id="CloseFullscreen">{$CloseFullscreen}</footer>
+{else}
 <footer id="Footer">
     <div class="wrapper">{$Footer}</div>
+    <!--{$MainBanner}-->
 </footer>
-{$MainBanner}
-{$MainDebug}
-{$EndJS}
+{/if}
+{$MainDebug}{$EndJS}
 </body>
 </html>
