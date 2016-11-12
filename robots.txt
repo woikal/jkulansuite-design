@@ -4,3 +4,6 @@ Disallow: inc/
 Disallow: modules/
 Disallow: install.php
 Disallow: nofollow.php
+Disallow: gitblit/
+Disallow: redmine/
+Disallow: awsome_pictures/
