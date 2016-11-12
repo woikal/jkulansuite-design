@@ -1,27 +1,17 @@
-<table width="100%" cellspacing="0" cellpadding="3">
-<tr> 
-	<td class="row_key" height="20"><b>Wichtige Newsmeldung: {$caption}</b></td>
-	<td class="row_key" height="20">
-		<div align="right">{$date}</div>
-	</td>
-</tr>
-<tr> 
-	<td class="tbl_important" colspan="2">
-		{$icon}
-		{$text}<br />
-	</td>
-</tr>
-<tr> 
-	<td class="row_key" height="20">
-		{$buttons}
-		{if isset($comments)}
-			<sup>{$comments}</sup>
-		{/if}
-		<br />&nbsp;
-	</td>
-	<td class="row_key" height="20"> 
-		<div align="right"><b>{$username}</b></div>
-		<br />&nbsp;
-	</td>
-</tr>
-</table>
+<article class="newspost important">
+    <header>
+        <h2>Wichtig: {$caption} </h2>
+        <div class="newsicon">{$icon}</div>
+    </header>
+    <div class="posting">{$text}
+        <div class="buttons">
+            {$buttons}
+        </div>
+    </div>
+    <footer>
+        <p class="newsinfo">{$date}, <span class="user">{$username}</span></p>
+        {if isset($comments)}
+        <p class="comments">{$comments}</p>
+        {/if}
+    </footer>
+</article>

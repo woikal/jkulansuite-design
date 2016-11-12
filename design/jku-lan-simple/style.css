@@ -382,9 +382,81 @@ ul.LineFirst > li.Err, ul.Line > li.Err {
   /*font-size: 1em;*/
 }
 
-p {
-  /* highly risky ... */
-  padding: 0.2em 1em;
+.newspost {
+  margin-bottom: 4em;
+}
+.newspost header {
+  position: relative;
+  margin-bottom: 26px;
+}
+.newspost header h2 {
+  width: 100%;
+  margin-bottom: 2px;
+  font-size: 1.8em;
+  font-weight: normal;
+  padding: 0 60px 0 6px;
+  color: #009cb3;
+  border-bottom: 1px solid #009cb3;
+}
+.newspost header .newsicon {
+  position: absolute;
+  top: 0px;
+  right: 8px;
+  padding: 0;
+  background-color: white;
+  overflow: hidden;
+}
+.newspost .posting {
+  position: relative;
+  padding: 0 6px;
+  margin-bottom: 22px;
+}
+.newspost .buttons {
+  position: absolute;
+  right: 6px;
+  bottom: -22px;
+}
+.newspost footer {
+  position: relative;
+  margin-top: 1em;
+  border-top: 1px solid #009cb3;
+}
+.newspost footer .newsinfo, .newspost footer .comments {
+  margin: 0;
+  padding-left: 6px;
+  font-size: .9em;
+  color: #5a5a5a;
+}
+.newspost footer .user {
+  font-weight: bold;
+}
+.newspost footer .comments {
+  position: absolute;
+  right: 6px;
+  top: 0;
+}
+.newspost.important header h2 {
+  color: #ff7a00;
+  border-bottom-color: #ff7a00;
+}
+.newspost.important footer {
+  border-top-color: #ff7a00;
+}
+.newspost h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+.newspost h2 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.newspost h3 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.newspost h4 {
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .ui-helper-clearfix {
