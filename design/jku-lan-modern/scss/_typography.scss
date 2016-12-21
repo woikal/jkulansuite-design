@@ -1,0 +1,88 @@
+/* -- Google Fonts Import -- */
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+@import 'https://fonts.googleapis.com/css?family=Righteous';
+@import 'https://fonts.googleapis.com/css?family=Black+Ops+One';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* == Main Design ==============================*/
+
+.Headline h1 {
+  font-size: 2.8em;
+  font-family: Righteous, Sans-Serif;
+  font-weight: normal;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px -1px rgb(0, 109, 125);
+}
+
+#Content .HeadlineSub {
+  border-top: 1px solid rgb(0, 109, 125);
+  border-bottom: 0 none;
+  padding: 0.3em 0 1em;
+  font-size: 1.1em;
+  color: rgb(0, 109, 125);
+
+}
+
+#Content .Line {
+  border: 0 none;
+  padding: 1em 0;
+}
+
+.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
+  background: rgb(0, 156, 179);
+  border-bottom: 1px solid rgb(0, 109, 125);
+  color: rgb(255, 255, 255);
+  text-shadow: 1px -1px rgb(0, 109, 125);
+  font-size: 1em;
+  padding: 4px 4px 4px 8px;
+
+}
+div#tabs {
+  background: #eee6e6;
+}
+
+/* Links */
+a, a:link, a:visited, a:active {
+  color: $colSecL;
+  text-decoration: none;
+}
+
+a.admin, a.admin:link, a.admin:visited, a.admin:active {
+  color: rgb(143, 45, 86); //TODO
+}
+
+a:hover, a.admin:hover {
+  color: rgb(255, 200, 87); //TODO
+  text-decoration: underline;
+}
+
+.row_key a, .mastersearch2_search_row_key a, .mastersearch2_result_row_key a {
+  text-shadow: 1px -1px rgb(255, 255, 255);
+}
+
+.row_value, .mastersearch2_search_row_value, .mastersearch2_result_row_value, .mastersearch2_search_row_value_highlighted, .mastersearch2_search_row_value_important {
+  background: rgba(255, 255, 255, .6);
+  /*font-size: 1em;*/
+}
+
+#Content .Information {
+  background: rgb(255, 200, 87);
+}
+
+input, textarea, select {
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(0, 156, 179);
+  margin: 1px;
+}
+
+.form_optional {
+  color: rgb(0, 0, 0);
+  background: rgba(255, 255, 255, .5);
+  border: 1px solid rgb(0, 156, 179);
+}
+

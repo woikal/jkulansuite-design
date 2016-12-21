@@ -11,11 +11,8 @@
     <meta name="description" content="Lansuite LAN-Party CMS"/>
     <meta name="keywords" content="LAN-Party, LAN, Party, Games"/>
     {$main_header_sitereload}
-    {$main_header_cssfiles}
+    <!-- {$main_header_cssfiles} //-->
     <link rel="stylesheet" type="text/css" href="design/{$Design}/style.css"/>
-    {if $IsMobileBrowser}
-    <link rel="stylesheet" type="text/css" href="design/{$Design}/style_mobile.css"/>
-    {/if}
     {$main_header_csscode}
 
     {$main_header_jsfiles}
@@ -23,72 +20,74 @@
     {$main_header_jscode}
     <link rel="shortcut icon" type="image/x-icon" href="jku-lan.ico"/>
     <link rel="alternate" type="application/rss+xml" title="RDF-Datei" href="ext_inc/newsfeed/news.xml"/>
-    <!--[if lte IE 6]>
-    <style type="text/css">
-        {
-            literal
-        }
-        div#Content {
-            width: 70%;
+    <style type="text/css" rel="stylesheet">
+        .clearfix:before, .clearfix:after {
+            content: " ";
+            display: table;
         }
 
-        {
-        /
-        literal
-        }
     </style>
-    <![endif]-->
 </head>
 
 
 <body onload="BodyOnload(1)" {$MainJS}>
-<a name="top"></a>
-<span id="LSloading" class="loading"></span>
+<div id="container"><a name="top"></a>
+    <span id="LSloading" class="loading"></span>
 
-{if $MainContentStyleID == 'ContentFullscreen'}
-<div id="LansuiteFullscreen">{$CloseFullscreen}</div>
-{elseif $DisplayMode != 'popup' && $DisplayMode != 'print'}
-<div id="DateLogout" class="wrapped">
-    {$smarty.now|date_format:"%d.%m.%Y"}{if $MainLogout} | {$MainLogout}{/if}
-</div>
-
-<div id="Mainbar">
-    <!--div style="display: block;" class="pane">
-        <div style="height: 815px; top: 0px;" class="slider"></div>
-    </div-->
-    <header>
-        <img id="Pagelogo" src="design/jku-lan-modern/images/jku-lan_logo.png" alt="JKU LAN Logo"
-             title="JKU LAN Logo">
-        <hgroup id="Pagetitle">
-            <h1>JKU LAN</h1>
-            <p>Where the University games...</p>
-
-        </hgroup>
+    <header id="header">
+        <div class="wrapped">
+            <img id="logo" src="design/jku-lan-modern/images/jku-lan_logo.png" alt="JKU LAN Logo"
+                 title="JKU LAN Logo">
+            <nav id="menu">{$MainLeftBox}</nav>
+        </div>
     </header>
-    <aside id="BoxesLeft">{$MainLeftBox}</aside>
-</div>
 
-<div id="Sponsors" class="wrapped">{$MainBanner}</div>
-{/if}
+    <main id="main">
+        <h1 id="title" class="wrapped">JKU LAN</h1>
+        <p id="subtitel" class="wrapped">SUBTITLE</p>
+        <ul id="breadcrumbs" class="wrapped">
+            <li><a href="">BC1</a></li>
+            <li>><a href="">BC2</a></li>
+        </ul>
 
-<div id="Contentwrapper" class="wrapped">
-    {if !$IsMobileBrowser}
-    <aside id="BoxesRight">{$MainRightBox}</aside>
-    {/if}
-    <main id="{$MainContentStyleID}" class="">
-        {$MainFrameworkmessages}
+        <!--{if $MainContentStyleID == 'ContentFullscreen'}
+        <div id="LansuiteFullscreen">{$CloseFullscreen}</div>
+        {elseif $DisplayMode != 'popup' && $DisplayMode != 'print'}
+        <div id="DateLogout" class="wrapped">
+            {$smarty.now|date_format:"%d.%m.%Y"}{if $MainLogout} | {$MainLogout}{/if}
+        </div>-->
 
-        {$MainContent}
-        <div class="clearfix"></div>
+        <div id="panel">
+            <div class="wrapped">
+                <div class="fluid-l">
+                    <div id="content">
+                        <!--main id="{$MainContentStyleID}" class=""-->
+                        {$MainFrameworkmessages}
+
+                        {$MainContent}
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div id="submenu" class="">
+                    <nav class="side">{$MainRightBox}</nav>
+                </div>
+            </div>
+        </div>
     </main>
-</div>
 
-<footer id="Pagefooter" class="wrapped">
-    {$Footer}
+    <div id="Sponsors" class="wrapped">{$MainBanner}</div>
+
+    {/if}
+
+
+    {$MainDebug}
+    {$EndJS}
+</div>
+<footer id="footer">
+    <div class="wrapper">
+        {$Footer}
+    </div>
 </footer>
 
-
-{$MainDebug}
-{$EndJS}
 </body>
 </html>

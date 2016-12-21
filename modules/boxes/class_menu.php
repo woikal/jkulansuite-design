@@ -9,115 +9,148 @@
  * @version $Id$
  * @access public
  */
-class menu {
+class menu
+{
 
     var $boxid = 0;
-	var $caption = '';
+    var $caption = '';
     var $box;
 
-  /**
-   * menu::menu()
-   *
-   * @param mixed $id
-   * @param mixed $caption
-   * @return
-   */
-    function menu($id, $caption, $title = ''){
-      $this->caption = $caption;
-      $this->boxid = $id;
-      $this->title = $title;
-      $this->box = new boxes();
+    /**
+     * menu::menu()
+     *
+     * @param mixed $id
+     * @param mixed $caption
+     * @return
+     */
+    function menu($id, $caption, $title = '')
+    {
+        $this->caption = $caption;
+        $this->boxid = $id;
+        $this->title = $title;
+        $this->box = new boxes();
     }
 
-  /**
-   * menu::FetchItem()
-   *
-   * @param mixed $item
-   * @return
-   */
-    function FetchItem ($item) {
+    /**
+     * menu::FetchItem()
+     *
+     * @param mixed $item
+     * @return
+     */
+    function FetchItem($item)
+    {
         global $cfg, $func;
 
         $item['caption'] = t($item['caption']);
         $item['hint'] = t($item['hint']);
 
         // Horrizontal Line IF Caption == '--hr--'
-        if ($item['caption'] == '--hr--') switch($item['level']) {
-            default: return $this->box->HRuleRow(); break;
-            case 1: return $this->box->HRuleEngagedRow(); break;
-
+        if ($item['caption'] == '--hr--') {
+            switch ($item['level']) {
+                default:
+                    return $this->box->HRuleRow();
+                    break;
+                case 1:
+                    return $this->box->HRuleEngagedRow();
+                    break;
+            }
         } else {
             // Scan for ID in info2 Link
             if ($_GET['mod'] == 'info2') {
                 preg_match('/(id=)(\\d{1,4})/', $item['link'], $treffer);
                 $info2_id = $treffer[2];
             }
-            if ( ($item['module'] != 'info2' AND $item['module'] == $_GET['mod'] AND $item['level']==0)
-                OR ($item['module'] == 'info2' AND $item['module'] == $_GET['mod'] AND $item['level']==0 AND $info2_id == $_GET['id'])
+
+            if (($item['module'] != 'info2' AND $item['module'] == $_GET['mod'] AND $item['level'] == 0)
+                OR ($item['module'] == 'info2' AND $item['module'] == $_GET['mod'] AND $item['level'] == 0 AND $info2_id == $_GET['id'])
                 OR ($item['module'] == 'info2' AND $_GET['mod'] == 'info2' AND $info2_id == $_GET['id'])
-                OR ($item['module'] == 'info2' AND $_GET['mod'] == 'info2' AND $cfg['info2_use_submenus']==1 AND $item['level']==0)
-                OR ($item['module'] != 'info2' AND $item['module'] == $_GET['mod'] AND ($item['action'] == $_GET['action']) AND $item['level']==1)
-               ) $highlighted = 1;
-            else $highlighted = 0;
-            $this->box->add_menuitem($item['caption'],$item['link'],$item['hint'],$item['level'],$item['requirement'],$highlighted);
+                OR ($item['module'] == 'info2' AND $_GET['mod'] == 'info2' AND $cfg['info2_use_submenus'] == 1 AND $item['level'] == 0)
+                OR ($item['module'] != 'info2' AND $item['module'] == $_GET['mod'] AND ($item['action'] == $_GET['action']) AND $item['level'] == 1)
+            ) {
+                $highlighted = true;
+            } else {
+                $highlighted = false;
+            }
+
+            $this->box->addMenuItem($item['caption'], $item['link'], $item['hint'], $item['level'], $item['requirement'], $highlighted);
         }
         return '';
     }
 
-  /**
-   * menu::get_menu_items()
-   *
-   * @return
-   */
-    function get_menu_items() {
+    /**
+     * menu::get_menu_items()
+     *
+     * @return
+     */
+    function get_menu_items()
+    {
         global $cfg, $func, $auth, $db;
 
         if (!$_GET['menu_group']) $_GET['menu_group'] = 0;
         // Get Main-Items
-        $res = $db->qry("SELECT menu.*
-        FROM %prefix%menu AS menu
-        LEFT JOIN %prefix%modules AS module ON menu.module = module.name
-        WHERE ((module.active) OR (menu.caption = '--hr--'))
-        AND (menu.boxid = %int%)
-        AND (menu.caption != '') AND (menu.level = 0) AND (menu.group_nr = %int%)
-        AND ((menu.requirement = '') OR (menu.requirement = 0)
-        OR (menu.requirement = 1 AND %int% = 1)
-        OR (menu.requirement = 2 AND %int% > 1)
-        OR (menu.requirement = 3 AND %int% > 2)
-        OR (menu.requirement = 4 AND %int% = 1)
-        OR (menu.requirement = 5 AND %int% = 0))
-        ORDER BY menu.pos", $this->boxid, $_GET['menu_group'], $auth['login'], $auth['type'], $auth['type'], $auth['type'], $auth['login']);
+        $res = $db->qry("SELECT menu.* FROM %prefix%menu AS menu 
+            LEFT JOIN %prefix%modules AS module ON menu.module = module.name
+            WHERE ((module.active) OR (menu.caption = '--hr--')) 
+            AND (menu.boxid = %int%)
+            AND (menu.caption != '') 
+            AND (menu.level = 0) 
+            AND (menu.group_nr = %int%)
+            AND ((menu.requirement = '') 
+                OR (menu.requirement = 0)
+                OR (menu.requirement = 1 AND %int% = 1)
+                OR (menu.requirement = 2 AND %int% > 1)
+                OR (menu.requirement = 3 AND %int% > 2)
+                OR (menu.requirement = 4 AND %int% = 1)
+                OR (menu.requirement = 5 AND %int% = 0))
+            ORDER BY menu.pos"
+            , $this->boxid, $_GET['menu_group'], $auth['login'], $auth['type'], $auth['type'], $auth['type'], $auth['login']);
 
-        while ($main_item = $db->fetch_array($res)) {
 
-            if ($main_item['needed_config'] == '' or call_user_func($main_item['needed_config'], '')) {
+        $this->box->addMenuStart();
+        while ($mainItem = $db->fetch_array($res)) {
+            if ($mainItem['needed_config'] == '' || call_user_func($mainItem['needed_config'], '')) {
+                $this->FetchItem($mainItem);
 
-            $this->FetchItem($main_item);
+                // If selected module: Get Sub-Items
+                $module = $_GET[(isset($_GET['module']) ? 'module' : 'mod')];
 
-            // If selected Module: Get Sub-Items
-            if (isset($_GET['module'])) $module = $_GET['module']; else $module = $_GET['mod'];
-            if ($module and $main_item['module'] == $module and $main_item['action'] != 'show_info2') {
-                $res2 = $db->qry("SELECT menu.*
-                    FROM %prefix%menu AS menu
-                    WHERE (menu.caption != '') AND (menu.level = 1) AND (menu.module = %string%)
-                    AND ((menu.requirement = '') OR (menu.requirement = 0)
-                    OR (menu.requirement = 1 AND %int% = 1)
-                    OR (menu.requirement = 2 AND %int% > 1)
-                    OR (menu.requirement = 3 AND %int% > 2)
-                    OR (menu.requirement = 4 AND %int% = 1)
-                    OR (menu.requirement = 5 AND %int% = 0))
-                    ORDER BY menu.requirement, menu.pos", $module, $auth['login'], $auth['type'], $auth['type'], $auth['type'], $auth['login']);
-                while ($sub_item = $db->fetch_array($res2)) if ($sub_item['needed_config'] == '' or call_user_func($sub_item['needed_config'], ''))
-                    $this->FetchItem($sub_item);
-                $db->free_result($res2);
+                if ($module && $mainItem['module'] == $module && $mainItem['action'] != 'show_info2') {
+                    $this->box->addMenuStart(1, true);
 
-                // If Admin add general Management-Links
-                if ($auth['type'] > 2) {
-                    $AdminIcons .= $this->box->LinkItem('index.php?mod=install&amp;action=mod_cfg&amp;module='. $module, t('Mod-Konfig'), 'admin', t('Dieses Modul verwalten'));
-                    $this->box->Row('<span class="AdminIcons">'. $AdminIcons .'</span>');
+                    $res2 = $db->qry("SELECT menu.* FROM %prefix%menu AS menu
+                        WHERE (menu.caption != '') 
+                          AND (menu.level = 1) 
+                          AND (menu.module = %string%)
+                          AND ((menu.requirement = '') 
+                            OR (menu.requirement = 0)
+                            OR (menu.requirement = 1 AND %int% = 1)
+                            OR (menu.requirement = 2 AND %int% > 1)
+                            OR (menu.requirement = 3 AND %int% > 2)
+                            OR (menu.requirement = 4 AND %int% = 1)
+                            OR (menu.requirement = 5 AND %int% = 0))
+                        ORDER BY menu.requirement, menu.pos"
+                        , $module, $auth['login'], $auth['type'], $auth['type'], $auth['type'], $auth['login']);
+                    while ($sub_item = $db->fetch_array($res2)) {
+                        if ($sub_item['needed_config'] == '' or call_user_func($sub_item['needed_config'], '')) {
+                            $this->FetchItem($sub_item);
+                            $this->box->addMenuItemEnd();
+                        }
+                    }
+                    $db->free_result($res2);
+
+                    // If Admin add general Management-Links
+                    if ($auth['type'] > 2) {
+                        $AdminIcons = $this->box->LinkItem('index.php?mod=install&amp;action=mod_cfg&amp;module=' . $module, t('Mod-Konfig'), 'admin', t('Dieses Modul verwalten'));
+                        $this->box->Row('<span class="AdminIcons">' . $AdminIcons . '</span>');
+                    }
+                    $this->box->addMenuEnd();
                 }
+                $this->box->addMenuItemEnd();
             }
-        }}
+
+        }
+        $this->box->addMenuEnd();
+
         $db->free_result($res);
         if ($this->box->box_rows) return $this->box->CreateBox($this->boxid, t($this->caption), $this->title);
     }
@@ -136,11 +169,12 @@ $MenuCallbacks[] = 'DokuWikiNotInstalled';
  *
  * @return
  */
-function ShowSignon() {
-  global $cfg, $auth;
+function ShowSignon()
+{
+    global $cfg, $auth;
 
-  if ($cfg['signon_partyid'] or !$auth['login']) return true;
-  else return false;
+    if ($cfg['signon_partyid'] or !$auth['login']) return true;
+    else return false;
 }
 
 /**
@@ -148,11 +182,12 @@ function ShowSignon() {
  *
  * @return
  */
-function ShowGuestMap() {
-  global $cfg;
+function ShowGuestMap()
+{
+    global $cfg;
 
-  if ($cfg['guestlist_guestmap']) return true;
-  else return false;
+    if ($cfg['guestlist_guestmap']) return true;
+    else return false;
 }
 
 /**
@@ -160,11 +195,12 @@ function ShowGuestMap() {
  *
  * @return
  */
-function sys_internet() {
-  global $cfg;
+function sys_internet()
+{
+    global $cfg;
 
-  if ($cfg['sys_internet']) return true;
-  else return false;
+    if ($cfg['sys_internet']) return true;
+    else return false;
 }
 
 /**
@@ -172,9 +208,10 @@ function sys_internet() {
  *
  * @return
  */
-function snmp() {
-  if (extension_loaded('snmp')) return true;
-  else return false;
+function snmp()
+{
+    if (extension_loaded('snmp')) return true;
+    else return false;
 }
 
 /**
@@ -182,9 +219,10 @@ function snmp() {
  *
  * @return
  */
-function DokuWikiNotInstalled() {
-  if (!file_exists('ext_scripts/dokuwiki/conf/local.php')) return true;
-  else return false;
+function DokuWikiNotInstalled()
+{
+    if (!file_exists('ext_scripts/dokuwiki/conf/local.php')) return true;
+    else return false;
 }
 
 ?>

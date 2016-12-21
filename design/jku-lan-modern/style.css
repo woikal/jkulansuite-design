@@ -1,17 +1,27 @@
-@charset "UTF-8";
 /*
-Lansuite Style-Definitions JKU LAN simple
+Lansuite Style-Definitions JKU LAN modern
+@author: Woike Alexander
+@email: alexander.woike@oeh.jku.at
 */
-/* -- Google Fonts Import -- */
 @import "https://fonts.googleapis.com/css?family=Roboto";
 @import "https://fonts.googleapis.com/css?family=Roboto+Condensed";
 @import "https://fonts.googleapis.com/css?family=Righteous";
 @import "https://fonts.googleapis.com/css?family=Black+Ops+One";
+#menu, ul#breadcrumbs, #panel {
+  *zoom: 1;
+}
+#menu:before, ul#breadcrumbs:before, #panel:before, #menu:after, ul#breadcrumbs:after, #panel:after {
+  content: " ";
+  display: table;
+}
+#menu:after, ul#breadcrumbs:after, #panel:after {
+  clear: both;
+}
+
 /* --reseting browser defaults -- */
 html, body {
   font-size: 12px;
   margin: 0;
-  background: #009cb3;
   padding: 0;
   box-sizing: border-box;
 }
@@ -22,49 +32,93 @@ html, body {
   box-sizing: inherit;
 }
 
-/*Prim├ñrfarben Hilfsfarben Akzentfarben mild Akzentfarben intensiv
-#009cb3
-(0,156,179)
-#006d7d
-(0, 109, 125)
-#74a57f
-(116, 165, 127)
-#99c24d
-(153, 194, 77)
-#ffffff
-(255, 255, 255)
-#000000
-(0, 0, 0)
-#314cb6
-(49, 76, 182)
-#ffc857
-(255, 200, 87)
-#36f1cd
-(54, 241, 205)
-#8f2d56
-(143, 45, 86)
-Logo, Banner, Hintergrundfarbe,
-Schriften auf dunkelm
-Untergrund
-Schatten, Effekte, R├ñnder,
-Schriften auf hellem Untergrund
-Hyperlinks, Icons Hyperlinks, Icons*/
-/* Overrides for development purposes */
-#notification {
-  display: none !important;
-}
-
-/* font-family: 'Roboto Condensed', sans-serif; */
+/* -- Google Fonts Import -- */
 * {
   font-family: 'Roboto', sans-serif;
 }
 
-.clearfix {
-  float: none;
-  clear: both;
+/* == Main Design ==============================*/
+.Headline h1 {
+  font-size: 2.8em;
+  font-family: Righteous, Sans-Serif;
+  font-weight: normal;
+  color: white;
+  text-shadow: 1px -1px #006d7d;
+}
+
+#Content .HeadlineSub {
+  border-top: 1px solid #006d7d;
+  border-bottom: 0 none;
+  padding: 0.3em 0 1em;
+  font-size: 1.1em;
+  color: #006d7d;
+}
+
+#Content .Line {
+  border: 0 none;
+  padding: 1em 0;
+}
+
+.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
+  background: #009cb3;
+  border-bottom: 1px solid #006d7d;
+  color: white;
+  text-shadow: 1px -1px #006d7d;
+  font-size: 1em;
+  padding: 4px 4px 4px 8px;
+}
+
+div#tabs {
+  background: #eee6e6;
+}
+
+/* Links */
+a, a:link, a:visited, a:active {
+  color: white;
+  text-decoration: none;
+}
+
+a.admin, a.admin:link, a.admin:visited, a.admin:active {
+  color: #8f2d56;
+}
+
+a:hover, a.admin:hover {
+  color: #ffc857;
+  text-decoration: underline;
+}
+
+.row_key a, .mastersearch2_search_row_key a, .mastersearch2_result_row_key a {
+  text-shadow: 1px -1px white;
+}
+
+.row_value, .mastersearch2_search_row_value, .mastersearch2_result_row_value, .mastersearch2_search_row_value_highlighted, .mastersearch2_search_row_value_important {
+  background: rgba(255, 255, 255, 0.6);
+  /*font-size: 1em;*/
+}
+
+#Content .Information {
+  background: #ffc857;
+}
+
+input, textarea, select {
+  color: black;
+  background: white;
+  border: 1px solid #009cb3;
+  margin: 1px;
+}
+
+.form_optional {
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #009cb3;
 }
 
 /* -- Main Layout definitions */
+.wrapped {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
 #DateLogout {
   padding: 0.2em 0;
   background: white;
@@ -78,19 +132,17 @@ Hyperlinks, Icons Hyperlinks, Icons*/
   background: white;
 }
 
-#Mainbar {
-  position: fixed;
-  /*float: left;*/
-  left: 0;
-  top: 0;
-  margin: 0;
-  width: 250px;
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  background: #006d7d;
+#container {
+  background: rgba(0, 156, 179, 0.5) url("images/jku-lan-logo_a25_14k.png") no-repeat fixed 60% 20%;
+  background-size: 100%;
 }
-#Mainbar::after {
+
+#header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+#header:after {
   content: '';
   position: absolute;
   right: -16px;
@@ -106,48 +158,54 @@ Hyperlinks, Icons Hyperlinks, Icons*/
   background: linear-gradient(to right, rgba(0, 0, 0, 0.3), transparent);
 }
 
-header {
-  margin: 1.21em 10px;
-}
-
-#Pagelogo {
+#logo {
   width: 230px;
   margin: 0;
   border: 0 none;
 }
 
-#Pagetitle {
-  /*float: left;*/
-  margin: 0.2em;
-  text-align: center;
-  color: white;
+#menu {
+  float: left;
 }
-#Pagetitle h1 {
-  font-family: 'Roboto Condensed', sans-serfi;
-  font-size: 5rem;
+
+h1#title {
+  font-size: 2rem;
   font-weight: 100;
-  line-height: 1;
-  padding: 0;
-  text-shadow: -2px 2px #005e6b;
 }
-#Pagetitle p {
+
+p#subtitle {
   font-size: 1.2rem;
   padding: 0;
-  text-shadow: -2px 2px #005e6b;
 }
 
-@media screen and (max-width: 900px) {
-  header {
-    display: none;
-  }
-}
-#BoxesLeft {
-  width: 250px;
-  padding: 0;
+ul#breadcrumbs li {
+  display: inline-block;
+  float: left;
+  padding: 0 2em;
+  list-style: none;
+  font-weight: bold;
 }
 
-.wrapped {
+#panel {
+  min-height: 800px;
+  padding-top: 2em;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.fluid-l {
+  float: left;
+  width: 100%;
+}
+
+#content {
   margin-left: 250px;
+  padding: 2em 20px 3em;
+}
+
+#submenu {
+  width: 250px;
+  float: left;
+  margin-left: -100%;
 }
 
 #Sponsors {
@@ -169,23 +227,7 @@ header {
   background: #eee6e6;
 }
 
-#Contentwrapper {
-  padding: 2em 20px 3em;
-  background: white;
-}
-#Contentwrapper > main {
-  margin-right: 200px;
-}
-
-#BoxesRight {
-  float: right;
-  width: 180px;
-  margin-left: 20px;
-  background: #ccebf0;
-}
-
 #Pagefooter {
-  position: relative;
   min-height: 120px;
   background: #009cb3;
   color: white;
@@ -212,25 +254,6 @@ header {
   /*
       color: rgb(255, 200, 87);
   */
-}
-
-div#tabs {
-  background: #eee6e6;
-}
-
-/* Links */
-a, a:link, a:visited, a:active {
-  color: white;
-  text-decoration: none;
-}
-
-a.admin, a.admin:link, a.admin:visited, a.admin:active {
-  color: #8f2d56;
-}
-
-a:hover, a.admin:hover {
-  color: #ffc857;
-  text-decoration: underline;
 }
 
 /* Boxes */
@@ -289,61 +312,9 @@ span.AdminIcons {
   background-position: 8px 2px;
 }
 
-/* == Main Design ==============================*/
-.Headline h1 {
-  font-size: 2.8em;
-  font-family: Righteous, Sans-Serif;
-  font-weight: normal;
-  color: white;
-  text-shadow: 1px -1px #006d7d;
-}
-
-#Content .HeadlineSub {
-  border-top: 1px solid #006d7d;
-  border-bottom: 0 none;
-  padding: 0.3em 0 1em;
-  font-size: 1.1em;
-  color: #006d7d;
-}
-
-#Content .Line {
-  border: 0 none;
-  padding: 1em 0;
-}
-
-.row_key, .mastersearch2_search_row_key, .mastersearch2_result_row_key {
-  background: #009cb3;
-  border-bottom: 1px solid #006d7d;
-  color: white;
-  text-shadow: 1px -1px #006d7d;
-  font-size: 1em;
-  padding: 4px 4px 4px 8px;
-}
-
-.row_key a, .mastersearch2_search_row_key a, .mastersearch2_result_row_key a {
-  text-shadow: 1px -1px white;
-}
-
-.row_value, .mastersearch2_search_row_value, .mastersearch2_result_row_value, .mastersearch2_search_row_value_highlighted, .mastersearch2_search_row_value_important {
-  background: rgba(255, 255, 255, 0.6);
-  /*font-size: 1em;*/
-}
-
-#Content .Information {
-  background: #ffc857;
-}
-
-input, textarea, select {
-  color: black;
-  background: white;
-  border: 1px solid #009cb3;
-  margin: 1px;
-}
-
-.form_optional {
-  color: black;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid #009cb3;
+/* Overrides for development purposes */
+#notification {
+  display: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */
