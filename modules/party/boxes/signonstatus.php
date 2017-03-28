@@ -17,11 +17,11 @@ $reg = $get_cur["n"];
 // Ermittle die Anzahl der derzeit angemeldeten Usern
 $get_cur = $db->qry_first('SELECT count(userid) as n FROM %prefix%user AS user LEFT JOIN %prefix%party_user AS party ON user.userid = party.user_id WHERE party_id=%int% AND (%plain%)', $party->party_id, $querytype);
 $cur = $get_cur["n"];
-
+/*
 // Wieviele davon haben bezahlt
 $get_cur = $db->qry_first('SELECT count(userid) as n FROM %prefix%user AS user LEFT JOIN %prefix%party_user AS party ON user.userid = party.user_id WHERE (%plain%) AND (party.paid > 0) AND party_id=%int%', $querytype, $party->party_id);
 $paid = $get_cur["n"];
-
+*/
 // Anzahl der max. Teilnehmer
 $max = $_SESSION['party_info']['max_guest'];
 
@@ -113,9 +113,9 @@ if ($cfg['sys_internet']) {
     $box->EngangedRow($count);
   
     $checked = $db->qry_first("SELECT UNIX_TIMESTAMP(checked) AS n FROM %prefix%partys WHERE party_id = %int%", $party->party_id);
-    $box->EmptyRow();
+    /*$box->EmptyRow();
     $box->ItemRow("data", "<b>". t('Letzter Kontocheck') ."</b>" );
-    $box->EngangedRow($func->unixstamp2date($checked['n'],"datetime" ));
+    $box->EngangedRow($func->unixstamp2date($checked['n'],"datetime" ));*/
   }
 }
 ?>
