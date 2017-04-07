@@ -14,7 +14,7 @@
     {$facebook_meta_properties}
     {$main_header_sitereload}
     {$main_header_cssfiles}
-    <link rel="stylesheet" type="text/css" href="design/{$Design}/style.css"/>
+    <link rel="stylesheet" type="text/css" href="design/{$Design}/css/style.css"/>
     {if $IsMobileBrowser}
     <link rel="stylesheet" type="text/css" href="design/{$Design}/style_mobile.css"/>
     {/if}
@@ -54,11 +54,10 @@
 
     <header id="Mainheader">
         <div class="wrapper">
-            <img id="Logo" src="design/jku-lan-simple/images/jku-lan_logo.png" alt="JKU LAN Logo" title="JKU LAN"/>
-            <h1 id="Pagetitle">JKU LAN</h1>
-            <img id="Emblem" src="design/jku-lan-simple/images/oeh-informatik_emblem.png" alt="JKU LAN Logo"
-                 alt="ÖH JKU StV Informatik Emblem" title="StV Informatik"/>
-
+            <a id="Sitelogo" href="{$url_home}" title="{$lang_home}">
+                <h1>JKU LAN</h1></a>
+            <a id="Emblem" href="http://informatik.jku.at/students/news"
+               alt="Seite der Studienvertretung Informatik" target="_blank"></a>
             <div class="clearfix"></div>
         </div>
     </header>

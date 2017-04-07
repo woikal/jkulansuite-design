@@ -3,13 +3,10 @@ Lansuite Style-Definitions for style
 'JKU LAN simple' by Alexander Woike
 based on 'simple' by Jochen Jung
 */
-
-$boxMargin: 8px;
-
+@import 'vars';
 @import 'functions';
 @import 'mixins';
 @import 'fonts';
-@import 'colors';
 //@import '';
 
 * {
@@ -62,41 +59,43 @@ html, body {
   position: relative;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: $headerHeight;
   overflow: hidden;
   padding: 0;
 
-  background: $colPrimDark;
+  background: $colPrimDark; // fallback
   @include linear-gradient(to bottom, $colPrimDark 0%, $colPrim 75%, $colPrimDark 100%);
 }
 
-#Logo {
-  height: 180px;
-  width: auto;
+#Sitelogo {
+  display: block;
   float: left;
-  margin: -40px $boxMargin;
-  border: 0 none;
+  height: $headerHeight;
+  overflow: hidden;
+
+  background: $imgSitelogo $boxMargin -40px no-repeat;
+  background-size: 180px;
+
+  padding-left: 200px;
+  color: $colLightest;
+  text-decoration: none;
+
+  h1 {
+    margin: 0 16px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 5rem;
+    font-weight: bold;
+    line-height: 100px;
+  }
 }
 
 #Emblem {
-  height: 180px;
-  width: auto;
+  display: block;
   float: right;
-  margin: -40px $boxMargin;
-  border: 0 none;
-}
+  height: $headerHeight;
+  width: 200px;
 
-#Pagetitle {
-  float: left;
-  margin: 0 16px;
-  padding: 0;
-  overflow: hidden;
-  font-family: 'Roboto', sans-serif;
-  font-size: 5rem;
-  font-weight: lighter;
-  line-height: 100px;
-  color: $colLightest;
-  /**/
+  background: $imgEmblem 28px 3px no-repeat;
 }
 
 #Banner {
