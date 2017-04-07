@@ -47,33 +47,24 @@ class framework
         $this->timer  = time();
         $this->timer2 = explode(' ', microtime());
 
-        if (isset($_SERVER['REQUEST_URI']))
-        {
+        if (isset($_SERVER['REQUEST_URI'])) {
             $config = parse_ini_file('inc/base/config.php', 1);
-            if (isset($config['lansuite']['base_url']))
-            {
+            if (isset($config['lansuite']['base_url'])) {
                 $url = $config['lansuite']['base_url'] . $_SERVER['REQUEST_URI'];
-            }
-            else
-            {
-                if ($_SERVER['HTTPS'])
-                {
+            } else {
+                if ($_SERVER['HTTPS']) {
                     $url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-                }
-                else
-                {
+                } else {
                     $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
                 }
             }
-            if ($CurentURL = parse_url($url))
-            {
+            if ($CurentURL = parse_url($url)) {
                 $this->internal_url_query['base']  = $CurentURL['path'] . '?' . $CurentURL['query']; // Enspricht alter $CurentURLBase;
                 $this->internal_url_query['query'] = preg_replace('/[&]?fullscreen=(no|yes)/sUi', '', $CurentURL['query']); // Enspricht alter $URLQuery;
                 $this->internal_url_query['host']  = $CurentURL['host'];
             }
         }
-        if (!$this->internal_url_query['host'])
-        {
+        if (!$this->internal_url_query['host']) {
             $this->internal_url_query['host'] = $_SERVER['SERVER_NAME'];
         }
 
@@ -84,8 +75,7 @@ class framework
         $this->add_css_path('ext_scripts/jquery-ui/smoothness/jquery-ui.custom.css');
         $this->add_css_path('design/style.css');
 
-        if ($this->internal_url_query['query'])
-        {
+        if ($this->internal_url_query['query']) {
             $query                      = preg_replace('/&language=(de|en|it|fr|es|nl)/sUi', '', $this->internal_url_query['query']);
             $query                      = preg_replace('/&order_by=(.)*&/sUi', '&', $query);
             $query                      = preg_replace('/&order_dir=(asc|desc)/sUi', '', $query);
@@ -137,8 +127,7 @@ class framework
         $this->facebook_meta_properties .= '<meta property = "og:title" content="' . $title . '" />' . PHP_EOL;
         $this->facebook_meta_properties .= '<meta property = "og:description" content="' . $description . '" />' . PHP_EOL;
 
-        if ($image !== '' /*&& is_readable($server.$image)*/)
-        {
+        if ($image !== '' /*&& is_readable($server.$image)*/) {
             $img_info = getimagesize($image);
             $width    = 1200; // optimzed by 2017 values
             $height   = $img_info[1] * 1200 / $img_info[0]; // relative to width
@@ -146,9 +135,7 @@ class framework
             $this->facebook_meta_properties .= '<meta property = "og:image" content="' . $server . $image . '" />' . PHP_EOL;
             $this->facebook_meta_properties .= '<meta property = "og:image:width" content="' . $width . '" />' . PHP_EOL;
             $this->facebook_meta_properties .= '<meta property = "og:image:height" content="' . $height . '" />' . PHP_EOL;
-        }
-        else
-        {
+        } else {
             $this->facebook_meta_properties .= $default_image;
         }
 
@@ -230,20 +217,13 @@ class framework
     {
         global $PHPErrorsFound, $db;
 
-        if (headers_sent() or connection_aborted() or $PHPErrors or (isset($db) and $db->errorsFound))
-        {
+        if (headers_sent() or connection_aborted() or $PHPErrors or (isset($db) and $db->errorsFound)) {
             return 0;
-        }
-        elseif (strpos($_SERVER["HTTP_ACCEPT_ENCODING"], 'x - gzip') !== false)
-        {
+        } elseif (strpos($_SERVER["HTTP_ACCEPT_ENCODING"], 'x - gzip') !== false) {
             return "x-gzip";
-        }
-        elseif (strpos($_SERVER["HTTP_ACCEPT_ENCODING"], 'gzip') !== false)
-        {
+        } elseif (strpos($_SERVER["HTTP_ACCEPT_ENCODING"], 'gzip') !== false) {
             return "gzip";
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }
@@ -265,14 +245,10 @@ class framework
      */
     function fullscreen($fullscreen)
     {
-        if (isset($fullscreen))
-        {
-            if ($fullscreen == 'yes')
-            {
+        if (isset($fullscreen)) {
+            if ($fullscreen == 'yes') {
                 $_SESSION['lansuite']['fullscreen'] = true;
-            }
-            elseif ($fullscreen == 'no')
-            {
+            } elseif ($fullscreen == 'no') {
                 $_SESSION['lansuite']['fullscreen'] = false;
             }
         }
@@ -290,20 +266,19 @@ class framework
         return $this->internal_url_query[$mode];
     }
 
+    /**
+     * Concat string to HTML title
+     *
+     * @param string to concat
+     */
     function AddToPageTitle($add)
     {
-        global $cfg;
+        if ($add) {
+            if ($this->pageTitle != '') {
+                $this->pageTitle .= ' - ';
+            }
 
-        if ($add)
-        {
-            if ($this->pageTitle == '')
-            {
-                $this->pageTitle = $add;
-            }
-            else
-            {
-                $this->pageTitle .= ' - ' . $add;
-            }
+            $this->pageTitle .= $add;
         }
     }
 
@@ -318,8 +293,7 @@ class framework
         $compression_mode = $this->check_optimizer();
 
 ### Prepare Header
-        if ($_GET['sitereload'])
-        {
+        if ($_GET['sitereload']) {
             $smarty->assign('main_header_sitereload', ' < meta http - equiv = "refresh" content = "' . $_GET['sitereload'] . '; URL=' . $_SERVER["PHP_SELF"] . '?' . $_SERVER['QUERY_STRING'] . '" > ');
         }
 // Add special CSS and JS
@@ -342,8 +316,7 @@ class framework
         $smarty->assign('MainContent', $this->main_content);
 
         $EndJS = '';
-        if ($cfg['google_analytics_id'])
-        {
+        if ($cfg['google_analytics_id']) {
             $EndJS = '';
             $EndJS .= '<script type = "text/javascript">';
             $EndJS .= '  var _gaq = _gaq || [];';
@@ -361,8 +334,7 @@ class framework
         $smarty->assign('EndJS', $EndJS);
 
 ### Switch Displaymodus (popup, base, print, normal, beamer)
-        switch ($this->modus)
-        {
+        switch ($this->modus) {
             case 'print':
                 // Make a Printpopup (without Boxes and Special CSS for printing)
                 $smarty->assign('MainContentStyleID', 'ContentFullscreen');
@@ -374,8 +346,7 @@ class framework
                 $smarty->assign('MainContentStyleID', 'ContentFullscreen');
 
                 // TODO : Rendundant... zusammenfassen
-                if ($compression_mode and $cfg['sys_compress_level'])
-                {
+                if ($compression_mode and $cfg['sys_compress_level']) {
                     header("Content-Encoding: $compression_mode");
                     echo "\x1f\x8b\x08\x00\x00\x00\x00\x00";
                     $index              = $smarty->fetch('design/' . $this->design . '/templates/main.htm') . "\n<!-- Compressed by $compression_mode -->";
@@ -385,10 +356,7 @@ class framework
                     $index              = substr($index, 0, strlen($index) - 4); // Letzte 4 Zeichen werden abgeschnitten. Aber Warum?
                     echo $index;
                     echo pack('V', $this->content_crc) . pack('V', $this->content_size);
-                }
-
-                else
-                {
+                } else {
                     $smarty->display("design/{$this->design}/templates/main.htm");
                 }
                 break;
@@ -412,23 +380,20 @@ class framework
                 $smarty->assign('main_footer_timer', round($this->out_work(), 2));
                 $smarty->assign('main_footer_cleanquery', $this->get_clean_url_query('query'));
 
-                if ($cfg["sys_footer_impressum"])
-                {
+                if ($cfg["sys_footer_impressum"]) {
                     $smarty->assign('main_footer_impressum', $cfg["sys_footer_impressum"]);
                 }
 
 
                 $main_footer_mem_usage = '';
-                if (function_exists('memory_get_peak_usage'))
-                {
+                if (function_exists('memory_get_peak_usage')) {
                     $main_footer_mem_usage = 'Memory-Usage: ' . $func->FormatFileSize(memory_get_peak_usage()) . ' |';
                 }
                 $smarty->assign('main_footer_mem_usage', $main_footer_mem_usage);
 
                 $footer = $smarty->fetch('design/templates/footer.htm');
 
-                if ($cfg["sys_optional_footer"])
-                {
+                if ($cfg["sys_optional_footer"]) {
                     $footer .= HTML_NEWLINE . $cfg["sys_optional_footer"];
                 }
                 $smarty->assign('Footer', $footer);
@@ -437,34 +402,26 @@ class framework
                 $smarty->assign('Design', $this->design);
 
                 // Unterscheidung fullscreen / Normal
-                if ($_SESSION['lansuite']['fullscreen'] or $this->modus == 'beamer')
-                {
+                if ($_SESSION['lansuite']['fullscreen'] or $this->modus == 'beamer') {
                     $smarty->assign('MainContentStyleID', 'ContentFullscreen');
-                }
-                else
-                {
+                } else {
                     $smarty->assign('MainContentStyleID', 'Content');
                 }
 
-                if ($auth['login'])
-                {
+                if ($auth['login']) {
                     $smarty->assign('MainLogout', '<a href="index.php?mod=auth&action=logout" class="menu">Logout</a>');
                 }
 
                 // Ausgabe Hauptseite
-                if (!$_SESSION['lansuite']['fullscreen'] and !$this->modus == 'beamer')
-                {
+                if (!$_SESSION['lansuite']['fullscreen'] and !$this->modus == 'beamer') {
                     $smarty->assign('MainFrameworkmessages', $this->framework_messages);
                     $smarty->assign('MainLeftBox', $templ['index']['control']['boxes_letfside']);
                     $smarty->assign('MainRightBox', $templ['index']['control']['boxes_rightside']);
                     $smarty->assign('MainLogo', '<img src="design/' . $this->design . '/images/lansuite-logo.gif" alt="Lansuite Logo" title="Lansuite Logo" border="0" />');
-                    if ($auth['type'] >= 2 and isset($debug))
-                    { // and $cfg['sys_showdebug'] (no more, for option now in inc/base/config)
+                    if ($auth['type'] >= 2 and isset($debug)) { // and $cfg['sys_showdebug'] (no more, for option now in inc/base/config)
                         $smarty->assign('MainDebug', $debug->show());
                     }
-                }
-                elseif ($_SESSION['lansuite']['fullscreen'])
-                {
+                } elseif ($_SESSION['lansuite']['fullscreen']) {
                     // Ausgabe Vollbildmodus
                     $smarty->assign('CloseFullscreen', '<a href="index.php?' . $this->get_clean_url_query('query') . '&amp;fullscreen=no" class="menu"><img src="design/' . $this->design . '/images/arrows_delete.gif" border="0" alt="" /><span class="infobox">' . t('Vollbildmodus schließen') . '</span> Lansuite - Vollbildmodus</a>');
                 }
@@ -497,14 +454,11 @@ class framework
                 #$smarty->assign("MainContent", $main_content_with_tabs);
 
                 // Ausgabe des Hautteils mit oder ohne Kompression
-                if ($compression_mode and $cfg['sys_compress_level'])
-                {
+                if ($compression_mode and $cfg['sys_compress_level']) {
                     header("Content - Encoding: $compression_mode");
                     echo "\x1f\x8b\x08\x00\x00\x00\x00\x00";
                     echo gzcompress($smarty->fetch('design/' . $this->design . '/templates/main.htm') . "\n < !--Compressed by $compression_mode-- > ", $cfg['sys_compress_level']);
-                }
-                else
-                {
+                } else {
                     $smarty->display('design/' . $this->design . '/templates/main.htm');
                 }
                 break;

@@ -7,14 +7,9 @@ if ($check["caption"] != "") {
     $func->SetRead('news', $_GET['newsid']);
 
     // GET NEWS DATA
-    $get_news                       = $db->qry_first('SELECT n.*, UNIX_TIMESTAMP(n.date) AS date, u.userid, u.username FROM %prefix%news n LEFT JOIN %prefix%user u ON u.userid = n.poster WHERE n.newsid = %int%', $_GET['newsid']);
-    $templ_news_single_row_priority = $get_news["priority"];
+    $get_news = $db->qry_first('SELECT n.*, UNIX_TIMESTAMP(n.date) AS date, u.userid, u.username FROM %prefix%news n LEFT JOIN %prefix%user u ON u.userid = n.poster WHERE n.newsid = %int%', $_GET['newsid']);
 
-    if ($templ_news_single_row_priority == 1) {
-        $news_type = "important";
-    } else {
-        $news_type = "normal";
-    }
+    $news_type = ($get_news["priority"] == 1) ? 'important' : 'normal';
 
     $smarty->assign('caption', $get_news["caption"]);
     $smarty->assign('userid', $get_news["poster"]);
@@ -45,7 +40,8 @@ if ($check["caption"] != "") {
 
     // SELECT ACTION TYPE
     if ($_GET["mcact"] == "" OR $_GET["mcact"] == "show") {
-        $dsp->NewContent(t('Newsmeldung + Kommentare'), t('Hier kannst du diese News kommentieren'));
+        //$dsp->NewContent(t('Newsmeldung + Kommentare'), t('Hier kannst du diese News kommentieren'));
+        $dsp->NewContent('Newsmeldung'); // workaround ~~woikerl
         $dsp->AddSingleRow($smarty->fetch("modules/news/templates/show_single_row_$news_type.htm"));
         $dsp->AddSingleRow($dsp->FetchSpanButton(t('Newsübersicht'), "index.php?mod=news&action=show"));
     }
