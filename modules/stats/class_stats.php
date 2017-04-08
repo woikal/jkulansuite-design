@@ -42,7 +42,7 @@ class stats {
   		$_SESSION['last_hit'] = time();
       #setcookie('last_hit', time(), time() + (30 * 60));
 
-      // Beispiel: Suche bei Google nach lansuite.orgapage.de führt zu folgendem Referrer:
+      // Beispiel: Suche bei Google nach lansuite.orgapage.de fÃ¼hrt zu folgendem Referrer:
       #$_SERVER['HTTP_REFERER'] = "http://www.google.de/search?hl=de&q=lansuite.orgapage.de&btnG=Google-Suche&meta=";
 
   		// Update search engine data
@@ -127,7 +127,7 @@ class stats {
 			$data['swap_free'] = round($data['swap_free'][0] / 1024,"2");
 		}
 
-		// Speicher auslesen für Kernel 2.4
+		// Speicher auslesen fÃ¼r Kernel 2.4
 		elseif (preg_match ("/\bLinux version 2\.4\b/i", $version)) {
 			$data['mem_total'] = explode(":",$memory[3]);    
 			$data['mem_total'] = explode("kB",$data['mem_total'][1]);  
