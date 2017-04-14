@@ -265,6 +265,11 @@ li.Information > A, li.Confirmation > A, li.Err > A {
 /*
 * LS-Buttons (either div, or input)
 */
+div.Button {
+  margin: 0;
+  padding: 0;
+}
+
 div.Button a {
   width: 140px;
   margin: 2px 0;
@@ -724,9 +729,10 @@ li.box_entry {
 
 li.box_entry_active {
   padding: 1px 0 2px 16px;
-  background: url(data:image/gif;base64,R0lGODlhDAANAOYAAP758Pn56/nz6v/y1v/y1//orf/orv/lpP/1AP/lovT0Ef/ihf/ihP/hhf/gfv/gfPbtDv/rAPTrEP/eXP/eW/vnBvbkDv/hAP/dMP/dL+/Wp//gAP/UeezVrNranf3Te//aHdnZnf/bHP/XNNrVnf/WM9nUnf/WAP/XAPfRDNrJnfTQEdnInf/NANLSQ//LAPnICNnBnfTHEf/CAP/BANbEPdLBQ/S1EPe1C9myOLi1as+vSLWyb62thK2rhK2ohKmpgqqnf62jhLugZ62ghK2fhLifaqGhja2dhKmegqGfjaqbf6ybfZqamJqZmJqZl5mZmZmZmP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUUAFIALAAAAAAMAA0AAAd/gFKCg4SFMUhPT0gxhAJFTBoAAB1LRQKCRUMcBJwEH0ZEUixJOAcGpwYJN0kqQjk0Dg2yDQ8zO0JRMC8jE70TJS0yTk4pJycgGBgiKCgrTj81G9IX1NQ2PyRBFRHc3RZKJlI+OhII5ggQPD6CAT1ALgoKLkc9AYQePU1NPSGDgQA7) no-repeat;
-  *background: url(../../images/dot_active.gif) no-repeat;
+  background-image: url(data:image/gif;base64,R0lGODlhDAANAOYAAP758Pn56/nz6v/y1v/y1//orf/orv/lpP/1AP/lovT0Ef/ihf/ihP/hhf/gfv/gfPbtDv/rAPTrEP/eXP/eW/vnBvbkDv/hAP/dMP/dL+/Wp//gAP/UeezVrNranf3Te//aHdnZnf/bHP/XNNrVnf/WM9nUnf/WAP/XAPfRDNrJnfTQEdnInf/NANLSQ//LAPnICNnBnfTHEf/CAP/BANbEPdLBQ/S1EPe1C9myOLi1as+vSLWyb62thK2rhK2ohKmpgqqnf62jhLugZ62ghK2fhLifaqGhja2dhKmegqGfjaqbf6ybfZqamJqZmJqZl5mZmZmZmP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUUAFIALAAAAAAMAA0AAAd/gFKCg4SFMUhPT0gxhAJFTBoAAB1LRQKCRUMcBJwEH0ZEUixJOAcGpwYJN0kqQjk0Dg2yDQ8zO0JRMC8jE70TJS0yTk4pJycgGBgiKCgrTj81G9IX1NQ2PyRBFRHc3RZKJlI+OhII5ggQPD6CAT1ALgoKLkc9AYQePU1NPSGDgQA7);
+  *background-image: url(../../images/dot_active.gif);
   /* IE7 and below */
+  background-repeat: no-repeat;
 }
 
 li.box_entry_lvl_1 {
