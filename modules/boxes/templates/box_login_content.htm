@@ -1,22 +1,60 @@
-<form name="form_loginbox" method="post" action="{$action}">
-  <table cellspacing="0" cellpadding="0">
-  <tr><td>
-    <label for="email" class="copyright">E-Mail / LS-ID</label>
-    <br /><input name="email" type="text" class="form" id="email" size="18" tabindex="1" />
-  </td><td valign="bottom" align="right">
-    {$buttons_add}
+<form name="form_loginbox" method="post" action="{$u_login}">
+    <!--table cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <label for="email" class="copyright">E-Mail / LS-ID</label>
+                <br/><input name="email" type="text" class="form" id="email" size="18" tabindex="1"/>
+            </td>
+            <td valign="bottom" align="right">
+                {$buttons_add}
 
-  </td></tr><tr><td>
-    <label for="password" class="copyright">Passwort</label>
-    <br /><input type="password" name="password" id="password" class="form" size="18" tabindex="2" />
-  </td><td valign="bottom" align="right">
-    {$buttons_pw}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password" class="copyright">Passwort</label>
+                <br/><input type="password" name="password" id="password" class="form" size="18" tabindex="2"/>
+            </td>
+            <td valign="bottom" align="right">
+                {$buttons_pw}
 
-  {if $ssl_link}</td></tr><tr><td colspan="2">
-    [<a href="{$ssl_link}">SSL Login</a>]{/if}
+                {if $xxx_ssl_link}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                [<a href="{$ssl_link}">SSL Login</a>]{/if}
 
-  </td></tr><tr><td colspan="2">
-    {$buttons_login}
-  </td></tr></table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                {$buttons_login}
+            </td>
+        </tr>
+    </table//-->
+    <dl class="loginbox">
+        <dt><label for="email">E-Mail / ID<!--USername//--></label></dt>
+        <dd><input name="email" type="text" id="email" size="64" tabindex="1"/></dd>
+
+        <dt><label for="password" class="copyright">Passwort</label></dt>
+        <dd><input type="password" name="password" id="password" class="form" size="64" tabindex="2"/>
+            <a href="{$u_pwrecover}">{$l_pwrecover}</a></dd>
+        <dt></dt>
+        <dd>
+            <input type="submit" class="Button" name="login" value="{$l_login}"/>
+        </dd>
+        <dt></dt>
+        <dd>
+            <input type="submit" class="Button" name="login" formaction="{$u_register}" value="{$l_register}"/>
+        </dd>
+
+        {if $xxx_ssl_link}
+        <dt></dt>
+        <dd>
+            [<a href="{$u_ssl_link}">{$l_ssl_link}</a>]
+
+        </dd>
+        {/if}
+    </dl>
 </form>
- 
