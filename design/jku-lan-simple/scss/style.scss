@@ -276,6 +276,24 @@ a:hover span.infobox {
   }
 }
 
+.usermenubox {
+  margin: 1em;
+  padding: 0;
+  li {
+    margin: 0;
+    list-style: none;
+    a {
+      display: block;
+      width: 100%;
+      &:hover, &active {
+        background: $colAccent3;
+        color: $colDark;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 /* -- Site Footer -- */
 #Footer {
   position: relative;

@@ -1123,6 +1123,24 @@ a:hover span.infobox:before {
   width: 100%;
 }
 
+.usermenubox {
+  margin: 1em;
+  padding: 0;
+}
+.usermenubox li {
+  margin: 0;
+  list-style: none;
+}
+.usermenubox li a {
+  display: block;
+  width: 100%;
+}
+.usermenubox li a:hover, .usermenubox li aactive {
+  background: #ffae00;
+  color: #3f3f3f;
+  text-decoration: none;
+}
+
 /* -- Site Footer -- */
 #Footer {
   position: relative;

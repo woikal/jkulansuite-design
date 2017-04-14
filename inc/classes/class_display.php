@@ -110,7 +110,7 @@ class display
         $out = $this->TabsMainContentTmp;
 
         $items = '';
-        foreach ($this->TabNames as $key => $name) {
+        foreach ($this->tabNames as $key => $name) {
             $items .= '<li><a href="#tabs-' . $key . '">' . $name . '</a></li>';
         }
         $out .= '<div id="tabs"><ul>' . $items . '</ul>';
