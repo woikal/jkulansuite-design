@@ -349,14 +349,6 @@ input.Button:hover {
   color: #aaaaaa;
 }
 
-/*
-*   Forms
-*/
-.form_optional {
-  /* used for optional form fields */
-  background: #bfffff;
-}
-
 input.yes_button {
   margin: 0;
   border: 0;
@@ -1048,6 +1040,10 @@ html, body {
   width: 144px;
 }
 
+.BoxContent input, .BoxContent select, .BoxContent button {
+  width: 100%;
+}
+
 ul.BoxContent {
   padding: 0;
   background: #ccebf0;
@@ -1124,18 +1120,24 @@ a:hover span.infobox:before {
 }
 
 .usermenubox {
-  margin: 1em;
+  margin: 0;
   padding: 0;
+  line-height: 2.0em;
+}
+.usermenubox p {
+  margin: 0;
+  padding: 0 1em;
 }
 .usermenubox li {
-  margin: 0;
   list-style: none;
+  padding: 0 1em;
 }
 .usermenubox li a {
   display: block;
+  line-height: 2.0em;
   width: 100%;
 }
-.usermenubox li a:hover, .usermenubox li aactive {
+.usermenubox li a:hover, .usermenubox li a:active {
   background: #ffae00;
   color: #3f3f3f;
   text-decoration: none;
@@ -1406,6 +1408,35 @@ ol.agb > li > ol > li {
   background: #ffae00;
   border-color: #6f4c00;
   color: #6f4c00;
+}
+
+/* party enrolling barplot */
+ul.barplot {
+  margin: 0;
+  height: 17px;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #3f3f3f;
+}
+ul.barplot li {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  height: 15px;
+  padding: 0;
+}
+ul.barplot li.paid {
+  background: #99c24d;
+}
+ul.barplot li.enrolled {
+  background: #ffae00;
+}
+ul.barplot li.vacant {
+  background: #afb0b0;
+}
+ul.barplot li.obverbooked {
+  background: #cc0f00;
+  border-left: 1px solid #3f3f3f;
 }
 
 /*# sourceMappingURL=style.css.map */

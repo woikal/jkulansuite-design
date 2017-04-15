@@ -73,7 +73,6 @@ class framework
         $this->add_js_path('scripts.js');
 
         $this->add_css_path('ext_scripts/jquery-ui/smoothness/jquery-ui.custom.css');
-        $this->add_css_path('design/style.css');
 
         if ($this->internal_url_query['query']) {
             $query                      = preg_replace('/&language=(de|en|it|fr|es|nl)/sUi', '', $this->internal_url_query['query']);

@@ -1,0 +1,25 @@
+{if $partybox.change_form}
+<form action="">
+    <select name="{$partybox.sel_name}" class="form">
+        {foreach from=$partybox.parties item=party key=pkey}
+        <option value="{$party.value}" {$party.selected}>{$party.name}</option>
+        {/foreach}
+    </select><br>
+    <input type="submit" class="Button" value="Party wechseln"/>
+</form>
+{else}
+<p>{$partybox.name}</p>
+{/if}
+<p>{$partybox.date}</p>
+{if !$partybox.intranet}
+<p>{$partybox.countdown}</p>
+{/if}{$partybox.barplot}
+{if $partybox.paid}
+<p>{$partybox.l_paid}: {$partybox.paid}</p>
+{/if}
+<p>{$partybox.l_enrolled}: {$partybox.enrolled}</p>
+<p>{$partybox.l_vacant}: {$partybox.vacant}</p>
+{if $partybox.intranet}
+<p>{$partybox.l_checkedin}: {$partybox.checkedin}</p>
+<p>{$partybox.l_checkedout}: {$partybox.checkedout}</p>
+{/if}

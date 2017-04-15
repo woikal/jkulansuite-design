@@ -1,20 +1,30 @@
-{if $admin_userid}
-<b>{$l_admin}:</b>&nbsp;[#{$admin_userid}]
 <ul class="usermenubox">
-    <li><a href="{$u_switch_userview}">{$l_switch_userview}</a></li>
-</ul>{/if}
-<b>{$l_user}:</b>&nbsp;[#{$userid}]
-<ul class="usermenubox">
-    <li>{$username}</li>
-    <li><a href="{$mail.url}" class="menu{$mail.notify}">{$l_mail}</a></li>
-    {if $ticket}
-    <li><a href="{$ticket.url}" class="menu">{$ticket.caption}</a></li>
+    {if $userbox.view}
+    <p><b>{$userbox.view.caption}:</b>&nbsp;[#{$userbox.view.adminid}]</p>
+    <p>{$userbox.view.adminname}</p>
+    <li><a href="{$userbox.view.u_switch}">{$userbox.view.l_switch}</a></li>
     {/if}
-    <li><a href="{$u_logout}" class="menu">{$l_logout}</a></li>
+    {if $userbox.login}
+    <li>{$userbox.login.l_count}:&nbsp;{$userbox.login.count}</li>
+    <li>{$userbox.login.l_last}:&nbsp;{$userbox.login.last}</li>
+    {/if}
+    <p><b>{$userbox.user.caption}:</b>&nbsp;[#{$userbox.user.id}]</p>
+    <li>{$userbox.user.name}</li>
+    {if $userbox.clan}
+    <li><a href="{$userbox.clan.url}" class="menu">{$userbox.clan.caption}</a></li>
+    {/if}
+    {if $userbox.mail}
+    <li><a href="{$userbox.mail.url}" class="{$userbox.mail.notify}">{$userbox.mail.caption}</a></li>
+    {/if}
+    {if $userbox.ticket}
+    <li><a href="{$userbox.ticket.url}" class="menu">{$userbox.ticket.caption}</a></li>
+    {/if}
+    <li><a href="{$userbox.logout.url}" class="">{$userbox.logout.caption}</a></li>
+    {if $userbox.party}
+    <p><b>{$userbox.party.name}:</b></p>
+    <p>{$userbox.party.enroll_caption}: {$userbox.party.enrolled}</p>
+    {if $userbox.party.enroll}
+    <p>{$userbox.party.enroll}</p>
+    {/if}
+    {/if}
 </ul>
-{if $partystatus}<b>{$partystatus.name}:</b>
-<ul class="usermenubox">
-    <li>{$partystatus.enroll_caption}: {$partystatus.enrolled}
-        {if $partystatus.enroll}<br>{$partystatus.enroll}{/if}
-    </li>
-</ul>{/if}

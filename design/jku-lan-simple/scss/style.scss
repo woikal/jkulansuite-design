@@ -188,6 +188,12 @@ html, body {
   // color: #ffc857;
 }
 
+.BoxContent {
+  input, select, button {
+    width: 100%;
+  }
+}
+
 ul.BoxContent {
   padding: 0;
   background: $colPrimLight;
@@ -277,15 +283,23 @@ a:hover span.infobox {
 }
 
 .usermenubox {
-  margin: 1em;
+  margin: 0;
   padding: 0;
-  li {
+  line-height: 2.0em;
+  p {
     margin: 0;
+    padding: 0 1em;
+  }
+  li {
     list-style: none;
+    padding: 0 1em;
+
     a {
       display: block;
+      line-height: 2.0em;
       width: 100%;
-      &:hover, &active {
+
+      &:hover, &:active {
         background: $colAccent3;
         color: $colDark;
         text-decoration: none;
@@ -600,4 +614,37 @@ ol.agb {
 
 div.Button a, div.Buttons a, input.Button {
   @extend .buttonPreset;
+}
+
+/* party enrolling barplot */
+ul.barplot {
+  margin: 0;
+  height: 17px;
+  width: 100%;
+
+  padding: 0;
+  border: 1px solid $colDark;
+
+  li {
+    display: inline-block;
+    position: relative;
+
+    margin: 0;
+    height: 15px;
+    padding: 0;
+
+    &.paid {
+      background: $colBarPaid;
+    }
+    &.enrolled {
+      background: $colBarEnrolled;
+    }
+    &.vacant {
+      background: $colBarVacant;
+    }
+    &.obverbooked {
+      background: $colBarOver;
+      border-left: 1px solid $colDark;
+    }
+  }
 }

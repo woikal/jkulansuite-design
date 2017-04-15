@@ -13,20 +13,16 @@
 if ($olduserid > 0) {
     $adminuser = $db->qry_first('SELECT username FROM %prefix%user WHERE userid=%int%', $olduserid);
 
-    if (strlen($old_user['username']) > 14) {
-        $adminuser['username'] = substr($old_user['username'], 0, 11) . "...";
+    if (strlen($adminuser['username']) > 14) {
+        $adminuser['username'] = substr($adminuser['username'], 0, 11) . "...";
     }
 
-    $box->DotRow(t('Admin') . ':', "", "", "admin", 0);
-    $box->EngangedRow($dsp->FetchUserIcon($olduserid, $adminuser["username"]), "", "", "admin", 0);
-    $box->EngangedRow(t('Zurück wechseln'), "index.php?mod=auth&amp;action=switch_back", "", "admin", 0);
-    $box->EmptyRow();
-
-    $smarty->assign('l_admin', t('Admin'));
-    $smarty->assign('l_switch_userview', t('Zurück wechseln'));
-    $smarty->assign('admin_userid', sprintf("%04d", $olduserid));
-    $smarty->assign('admin_username', $adminuser["username"]);
-    $smarty->assign('u_swtch_userview', 'index.php?mod=auth&amp;action=switch_back');
+    $userbox['view'] = array(
+        'caption' => t('Admin'),
+        'l_switch' => t('Zurück wechseln'),
+        'adminid' => sprintf("%04d", $olduserid),
+        'adminname' => $adminuser["username"],
+        'u_switch' => 'index.php?mod=auth&amp;action=switch_back');
 }
 
 // Show username and ID
@@ -36,13 +32,15 @@ if (strlen($auth['username']) > 14) {
     $username = $auth['username'];
 }
 
-$smarty->assign('l_user', t('Benutzer'));
-$smarty->assign('l_logout', t('Ausloggen'));
-$smarty->assign('userid', sprintf("%04d", $auth['userid']));
-$smarty->assign('username', $dsp->FetchUserIcon($auth['userid'], $username));
+$userbox['user'] = array(
+    'caption' => t('Benutzer'),
+    'id' => sprintf("%04d", $auth['userid']),
+    'name' => $dsp->FetchUserIcon($auth['userid'], $username));
 
-$smarty->assign('u_logout', 'index.php?mod=auth&action=logout');
-$smarty->assign('icon_logout', '<a href="index.php?mod=auth&action=logout" class="icon_delete" title="' . t('Ausloggen') . '"></a>');
+$userbox['logout'] = array(
+    'url' => 'index.php?mod=auth&action=logout',
+    'caption' => t('Ausloggen'),
+    'class' => 'icon_delete');
 
 
 // Show last log in and login count
@@ -53,18 +51,19 @@ $user_lg = $db->qry_first("SELECT user.logins, max(auth.logintime) AS logintime
 	GROUP BY auth.userid", $auth["userid"]);
 
 if (isset($_POST['login']) and isset($_POST['password'])) {
-    $box->DotRow(t('Logins') . ": <b>" . $user_lg["logins"] . '</b>');
-    $box->DotRow(t('Zuletzt eingeloggt'));
     date_default_timezone_set($cfg['sys_timezone']);
-    $box->EngangedRow("<b>" . date('d.m H:i', $user_lg["logintime"]) . "</b>");
+    $userbox['login'] = array(
+        'l_count' => t('Logins'),
+        'count' => $user_lg["logins"],
+        'l_last' => t('Zuletzt eingeloggt'),
+        'last' => date('d.m H:i', $user_lg["logintime"]));
 }
 
-
-// Show other links
-#$box->DotRow(t('Meine Einstellungen'), "index.php?mod=usrmgr&amp;action=settings", '', "menu");
 // Show Clan
 if (($auth['clanid'] != NULL and $auth['clanid'] > 0) and $func->isModActive('clanmgr')) {
-    $box->DotRow(t('Mein Clan'), "index.php?mod=clanmgr&amp;step=2&clanid=" . $auth['clanid'], '', "menu");
+    $userbox['clan'] =
+        ['caption' => t('Mein Clan'),
+         'url' => 'index.php?mod=clanmgr&amp;step=2&clanid=' . $auth['clanid']];
 }
 
 // New-Mail Notice
@@ -74,8 +73,7 @@ if ($func->isModActive('mail')) {
 		WHERE ToUserID = %int% AND mail_status = 'active' AND rx_date IS NULL
 		", $auth['userid']);
 
-    $mailclass = 'menu';
-
+    $notify = '';
     if ($cfg['mail_popup_on_new_mails'] and $db->num_rows($mails_new) > 0) {
         $found_not_popped_up_mail = false;
         while ($mail_new = $db->fetch_array($mails_new)) {
@@ -84,21 +82,22 @@ if ($func->isModActive('mail')) {
                 $found_not_popped_up_mail                    = true;
             }
         }
-        $mailclass .= ' notify';
+        $notify = ' notify';
     }
 
     $db->free_result($mails_new);
 
-    $smarty->assign('mail', ['class' => $mailclass,
-                             'url' => 'index.php?mod=mail',
-                             'caption' => t('Mein Postfach')]);
+    $userbox['mail'] = array(
+        'url' => 'index.php?mod=mail',
+        'caption' => t('Mein Postfach'),
+        'notify' => $notify);
 }
 
 // PDF-Ticket
 if ($cfg["user_show_ticket"]) {
-    $smarty->assign('ticket', ['class' => 'menu',
-                               'url' => 'index.php?mod=usrmgr&amp;action=myticket',
-                               'caption' => t('Meine Eintrittskarte')]);
+    $userbox['ticket'] = array(
+        'url' => 'index . php ? mod = usrmgr & amp;action = myticket',
+        'caption' => t('Meine Eintrittskarte'));
 }
 
 // Zeige Anmeldestatus
@@ -108,34 +107,38 @@ if ($party->count > 0 and $_SESSION['party_info']['partyend'] > time()) {
 
     // signed in to next party?
     if ($qry_enrolled == null) {
-        $enrolled   = '<span class="negative">' . t('Nein') . '!</span>';
-        $enrolllink = '<a href="index.php?mod=signon">' . t('Hier anmelden') . '</a>';
-        /*$paidstat = '<font color="red">'. t('Nein') .'!</font>';*/
+        $enrolled   = ' < span class="negative" > ' . t('Nein') . '!</span > ';
+        $enrolllink = '<a href = "index.php?mod=signon" > ' . t('Hier anmelden') . ' </a > ';
+        /*$paidstat = '<font color = "red" > '. t('Nein') .'!</font > ';*/
     } else {
-        $enrolled   = '<span class="positive">' . t('Ja') . '!</span>';
+        $enrolled   = '<span class="positive" > ' . t('Ja') . '!</span > ';
         $enrolllink = '';
 
         // paid?
         if (($qry_enrolled["paid"] == 1) || ($qry_enrolled["paid"] == 2)) {
-            $paid    = '<span class="positive">' . t('Ja') . '!</span>';
+            $paid    = ' < span class="positive" > ' . t('Ja') . '!</span > ';
             $paylink = '';
         } else {
-            $paid    = '<span class="negative">' . t('Nein') . '!</span>';
-            $paylink = $cfg['signon_paylink'] ? '<a href="' . $cfg['signon_paylink'] . '">' . t('Bezahltinfos') . '</a>' : '';
+            $paid    = ' < span class="negative" > ' . t('Nein') . '!</span > ';
+            $paylink =
+                $cfg['signon_paylink'] ? ' < a href =
+        "' . $cfg['signon_paylink'] . '" > ' . t('Bezahltinfos') . ' </a > ' : '';
         }
     }
 
     $query_partys = $db->qry_first("SELECT * FROM %prefix%partys AS p WHERE p.party_id = %int%", $_SESSION["party_id"]);
 
-    $smarty->assign('partystatus', ['name' => $query_partys["name"],
-                                    'class' => 'menu',
-                                    'enroll_caption' => t('Angemeledet'),
-                                    'enrolled' => $enrolled,
-                                    'enroll' => $enrolllink,
-                                    'payment_caption' => t('Bezahltinfos'),
-                                    'pais' => $paid,
-                                    'pay' => $enrolllink]);
+    $userbox['party'] = array('name' => $query_partys["name"],
+                              'class' => 'menu',
+                              'enroll_caption' => t('Angemeledet'),
+                              'enrolled' => $enrolled,
+                              'enroll' => $enrolllink,
+                              /*'payment_caption' => t('Bezahltinfos'),
+                              'paid' => $paid,
+                              'pay' => $enrolllink*/);
 
 }
+
+$smarty->assign('userbox', $userbox);
 $box->AddTemplate($smarty->fetch('modules/usrmgr/templates/box_usermenu.htm'));
 ?>
